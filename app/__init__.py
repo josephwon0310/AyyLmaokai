@@ -10,6 +10,9 @@ app = Flask(__name__)
 #Import the config.py
 app.config.from_object('config')
 
+#Database
+#TODO
+
 @app.route('/')
 def index():
-    return "Hello World"
+    return render_template('index.html')
