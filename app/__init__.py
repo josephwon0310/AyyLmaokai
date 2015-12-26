@@ -1,3 +1,6 @@
+'''
+This file initializes your application and brings together all of the various components.
+'''
 #Import flask & template operators
 from flask import Flask, render_template
 
@@ -18,6 +21,10 @@ app.config.from_pyfile('config.py')
 #TODO
 
 
-@app.route('/')
-def index():
-    return render_template('index.html')
+#Import the Blueprints
+from .views.profile import profile
+from .views.home import home
+
+
+app.register_blueprint(profile)
+app.register_blueprint(home)
