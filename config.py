@@ -14,7 +14,3 @@ THREADS_PER_PAGE = 2
 
 #Enable protection against CSRF
 CSRF_ENABLED = True
-CSRF_SESSION_KEY = "memes3dank"
-
-#Secret key for signing cookies
-SECRET_KEY = "panicboi"
