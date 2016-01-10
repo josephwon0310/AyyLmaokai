@@ -7,9 +7,6 @@ Simple and intuitive analytics tool for light gamers who want to get better.
 
 
 
-~ Features ~
-
-
-
+~ File Structure ~
 
 ~ Log ~
