@@ -14,3 +14,4 @@ THREADS_PER_PAGE = 2
 
 #Enable protection against CSRF
 CSRF_ENABLED = True
+
