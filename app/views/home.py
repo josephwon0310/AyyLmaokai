@@ -29,4 +29,7 @@ def riot_request():
     rankedDTO = f.get_ranked_stats(summonerId, 'SEASON2015', API_KEY)
     rankedChampions = rankedDTO['champions'] #this is a list of dicts
     
+    #retrieve recent games here
+    #TODO: process game data
+    
     return render_template('home/test.html', summonerDTO=summonerDTO)

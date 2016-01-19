@@ -6,6 +6,8 @@ import json
 
 SUMMONER_URL = 'https://na.api.pvp.net/api/lol/na/v1.4/summoner'
 STATS_URL = 'https://na.api.pvp.net/api/lol/na/v1.3/stats/by-summoner/'
+LEAGUE_URL = 'https://na.api.pvp.net/api/lol/na/v2.5/league'
+GAME_URL = 'https://na.api.pvp.net/api/lol/na/v1.3/game/by-summoner'
 
 #returns the json formatted summary of the requested summoner.
 #Includes ID, name, profileIconID, level, and revisionDate
@@ -37,3 +39,47 @@ def get_ranked_stats(sum_ID, API_KEY, season):
         return r.json()
     elif r.status_code == 404: #ranked stats not found
         return 404
+
+def get_general_stats(sum_ID, API_KEY, season):
+    
+    url = ''
+    r = requests.get(url)
+    
+    if r.status_code == 200:
+        return r.json()
+    elif r.status_code == 404: #stats not found, most likely wrong summoner_ID
+        return 404
+
+#returns the json object of the Champion static data
+def get_champion_data(API_KEY):
+    pass
+
+
+#returns the json object of the current game
+def get_current_game():
+    pass
+
+#returns the json object of the challenger tier
+def get_challenger_list(API_KEY):
+    
+    url = '{}/challenger?type=RANKED_SOLO_5x5&api_key={}'.format(LEAGUE_URL, API_KEY)
+    r = requests.get(url)
+    
+    if r.status_code == 200:
+        return r.json()
+    elif r.status_code == 404:
+        return 404
+
+#returns the json object of the recent match history and stats
+#Grab the data with json['games']
+def get_game_stat(sum_ID, API_KEY):
+    
+    url ='{}/{}/recent?api_key={}'.format(GAME_URL, sum_ID, API_KEY)
+    r = requests.get(url)
+    
+    if r.status_code == 200:
+        return r.json()
+    elif r.status_code == 404:
+        return 404
+
+    
