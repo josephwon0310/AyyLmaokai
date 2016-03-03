@@ -1,7 +1,12 @@
 <div>
     <ul>
-        {% for a in summonerDTO %}
-            
+        <p>TEST</p>
+        <p> id: {{ summonerId }} </p>
+        <p> level: {{ level }}</p>
+        <ul>
+        {% for champs in rankedDTO %}
+            <li>{{ champs['id'] }}</li>
         {% endfor %}
+        </ul>
     </ul>
 </div>

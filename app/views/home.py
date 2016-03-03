@@ -2,6 +2,7 @@ from flask import Blueprint, render_template
 from flask import request
 from flask import current_app
 from app.mod_riot import functions as f
+from app.mod_riot import mapper as m
 import requests
 
 home = Blueprint('home', __name__)
@@ -26,10 +27,8 @@ def riot_request():
     revisionDate = summonerDTO['revisionDate']
     
     #retrieve ranked stats
-    rankedDTO = f.get_ranked_stats(summonerId, 'SEASON2015', API_KEY)
-    rankedChampions = rankedDTO['champions'] #this is a list of dicts
+    rankedDTO = f.get_ranked_stats(summonerId, 'SEASON2016', API_KEY)
     
-    #retrieve recent games here
-    #TODO: process game data
-    
-    return render_template('home/test.html', summonerDTO=summonerDTO)
+    return render_template('home/test.html', rankedDTO=rankedDTO
+                                           , summonerId=summonerId
+                                           , level=level)
