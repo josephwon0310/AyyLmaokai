@@ -2,12 +2,14 @@
 <html>
      <head>
          <title>LOL Tutor</title>
+         <h2>
+            THIS IS THE BASE TEMPLATE IN THE ROOT OF VIEWS
+         </h2>
      </head>
      <body>
-         <h1>Enter in a summoner name</h1>
-         <form actions="." method="POST">
-            <input type="text" name="text">
-            <input type="submit" name="my-form" value="Send">
-         </form>
-     </body>    
+         {% block content %}{% endblock %}
+         <h2>
+             THIS IS THE BASE THEMPLATE IN THE ROOT OF VIEWS
+         </h2>
+     </body>
 </html>

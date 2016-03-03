@@ -9,7 +9,7 @@ home = Blueprint('home', __name__)
 
 @home.route('/')
 def index():
-    return render_template('layout.html')
+    return render_template('home/home.html')
 
 @home.route('/', methods=['POST'])
 def riot_request():

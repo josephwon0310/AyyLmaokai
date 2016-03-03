@@ -62,15 +62,6 @@ def get_general_stats(sum_ID, API_KEY, season):
     elif r.status_code == 404: #stats not found, most likely wrong summoner_ID
         return 404
 
-#returns the json object of the Champion static data
-def get_champion_data(API_KEY):
-    pass
-
-
-#returns the json object of the current game
-def get_current_game():
-    pass
-
 #returns the json object of the challenger tier
 def get_challenger_list(API_KEY):
     
@@ -93,4 +84,11 @@ def get_game_stat(sum_ID, API_KEY):
         return r.json()
     elif r.status_code == 404:
         return 404
+        
+        
+#=======CHAMPION GG INTEGRATION============
+
+# def get_trending_champs(API_KEY):
+    
+#     url = 
 

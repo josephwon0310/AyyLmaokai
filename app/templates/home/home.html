@@ -1,13 +1,8 @@
-<!DOCTYPE HTML>
-<html>
-     <head>
-         <title>Testeroni</title>
-     </head>
-     <body>
+{% extends "layout.html" %}
+{% block content %}
          <h1>Enter in a summoner name</h1>
          <form actions="." method="POST">
             <input type="text" name="text">
             <input type="submit" name="my-form" value="Send">
          </form>
-     </body>    
-</html>
+{% endblock %}

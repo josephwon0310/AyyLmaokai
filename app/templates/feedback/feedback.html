@@ -1,0 +1,101 @@
+{% extends "layout.html" %}
+
+{% block title %}Feedback{% endblock %}
+
+{% block head %}
+{{ super() }}
+{% endblock %}
+
+{% block content %}
+<div>
+    <div>
+        <!-- this is Card -->
+        {% for game in list %}
+        <div>
+            <!-- this shows victory or loss -->
+            <div>
+                <!--put game.victory if won or something else if lost -->
+                <p></p>
+            </div>
+
+            <!-- this is part that shows actual stuff -->
+            <table>
+                <colgroup>
+                    <col class="champion_img">
+                    <col class="player_name">
+                </colgroup>
+
+                {% for player in game.ours %}
+                <tr class="Player">
+
+                </tr>
+                {% endfor %}
+            </table>
+
+            <!-- break line -->
+            <br>
+
+            <!--shows the other team -->
+            <div>
+                <!-- prints other team I guess -->
+                <p></p>
+            </div>
+
+            <!--this is the part that actually shows stuff again-->
+            <table>
+                <colgroup>
+                    <col class="chmapion_img">
+                    <col class="player_name">
+                    <col class="dropdown_icon">
+                </colgroup>
+
+                <!-- use bootsrap dropdowns for this -->
+                {% for player in game.theirs %}
+                <tr class="Player">
+                    <!--image -->
+                    <img></img>
+
+                    <!--player name-->
+                    <p></p>
+
+                    <!--dropdown button -->
+                    <button data-toggle="dropdown">
+                        <img></img>
+                    </button>
+
+                    <!-- what comes down when you do the dropdown -->
+                    <div class="dropdown-menu">
+                        <form action="">
+                            <textarea rows="4">
+
+                            </textarea>
+                            <input type="checkbox" name="rel_def_comm_1">
+                                <!--default comment-->
+                            </input>
+                            <input type="checkbox" name="rel_def_comm_2">
+                                <!--default comment-->
+                            </input>
+                            <input type="checkbox" name="rel_def_comm_3">
+                                <!--default comment-->
+                            </input>
+                            <input type="checkbox" name="rel_def_comm_4">
+                                <!--default comment-->
+                            </input>
+                            <input type="checkbox" name="rel_def_comm_5">
+                                <!--default comment-->
+                            </input>
+                            <input type="checkbox" name="rel_def_comm_6">
+                                <!--default comment-->
+                            </input>
+                            <!--submits form -->
+                            <input type="submit" value="Submit">
+                        </form>
+                    </div>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
