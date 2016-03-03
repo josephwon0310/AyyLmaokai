@@ -1,0 +1,61 @@
+{% extends "layout.html" %}
+
+{% block title %}Feedback{% endblock %}
+
+{% block head %}
+{{ super() }}
+{% endblock %}
+
+{% block content %}
+<div>
+    <div>
+        <!-- this is Card -->
+        {% for game in list %}
+        <div>
+            <!-- this shows victory or loss -->
+            <div>
+                <!--put game.victory if won or something else if lost -->
+                <p></p>
+            </div>
+
+            <!-- this is part that shows actual stuff -->
+            <table>
+                <colgroup>
+                    <col class="champion_img">
+                    <col class="player_name">
+                </colgroup>
+
+                {% for player in game.ours %}
+                <tr class="Player">
+
+                </tr>
+                {% endfor %}
+            </table>
+
+            <!-- break line -->
+            <br>
+
+            <!--shows the other team -->
+            <div>
+                <!-- prints other team I guess -->
+                <p></p>
+            </div>
+
+            <!--this is the part that actually shows stuff again-->
+            <table>
+                <colgroup>
+                    <col class="chmapion_img">
+                    <col class="player_name">
+                </colgroup>
+
+                {% for player in game.theirs %}
+                <tr class="Player">
+
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
