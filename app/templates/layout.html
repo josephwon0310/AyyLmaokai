@@ -1,13 +1,13 @@
 <!DOCTYPE HTML>
 <html>
      <head>
-         <title>Testeroni</title>
+         <title>{% block title %}{% endblock %} - League Tutor</title>
+         <!--does anythign else go here-->
+         {% block head %} {% endblock %}
      </head>
      <body>
-         <h1>Enter in a summoner name</h1>
-         <form actions="." method="POST">
-            <input type="text" name="text">
-            <input type="submit" name="my-form" value="Send">
-         </form>
-     </body>    
+         {% block content %}
+
+         {% endblock %}
+     </body>
 </html>

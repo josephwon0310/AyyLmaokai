@@ -3,13 +3,13 @@ This file initializes your application and brings together all of the various co
 '''
 #Import flask & template operators
 from flask import Flask, render_template
-from flask.ext.cache import Cache
+#from flask.ext.cache import Cache
 #Define the WSGI application object
 app = Flask(__name__, instance_relative_config=True)
 
 #Define the Cache object for Flask
 #TODO: might have to change it to another type of cache, simple is not good
-cache = Cache(app,config={'CACHE_TYPE': 'simple'})
+#cache = Cache(app,config={'CACHE_TYPE': 'simple'})
 
 #Import the configurations
 app.config.from_object('config')
@@ -28,7 +28,8 @@ app.config.from_pyfile('config.py')
 #Import the Blueprints
 from .views.profile import profile
 from .views.home import home
-
+from .views.trending import trending
 
 app.register_blueprint(profile)
 app.register_blueprint(home)
+app.register_blueprint(trending)
