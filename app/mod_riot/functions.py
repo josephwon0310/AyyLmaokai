@@ -15,6 +15,17 @@ CURRENT_MATCH = 'https://na.api.pvp.net/observer-mode/rest/consumer/getSpectator
 
 CHAMPIONGG = 'http://api.champion.gg/stats'
 
+#returns the list of aggregated champ stat
+def get_champion_data(champion, API_KEY):
+    url = '{}/champs/{}?api_key={}'.format(CHAMPIONGG, champion, API_KEY)
+    r = requests.get(url)
+    
+    if r.status_code == 200:
+        return r.json()
+        
+    elif r.status_code == 404:
+        return 404
+        
 #returns the json formatted summary of the requested summoner.
 #Includes ID, name, profileIconID, level, and revisionDate
 def get_sum_DTO(sum_name, API_KEY):
@@ -55,15 +66,25 @@ def get_ranked_stats(sum_ID, season, API_KEY):
     elif r.status_code == 404: #ranked stats not found
         return 404
 
-#Returns the json info of the current game that the user is in
+#Returns the list of json info of the current game that the user is in
 def get_current_match(sum_ID, API_KEY):
     
     url = '{}/{}?api_key={}'.format(CURRENT_MATCH, sum_ID, API_KEY)
     r = requests.get(url)
     
+    blueTeam, redTeam = [], []
+    
     if r.status_code == 200:
         data = r.json()
         players = data['participants'] #gets the list of json objects of the players
+        
+        for player in players:
+            if player['teamId'] == 100: #blueTeam
+                blueTeam.append(player)
+            else: #redTeam
+                redTeam.append(player)
+        
+        return [blueTeam, redTeam]
         
     elif r.status_code == 404: #not in game
         return 404
@@ -106,3 +127,4 @@ def get_mostplayed_champs(API_KEY, limit):
         
     elif r.status_code == 404:
         return 404
+        

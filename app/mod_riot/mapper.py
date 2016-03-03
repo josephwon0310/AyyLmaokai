@@ -8,7 +8,8 @@ import os
 from pprint import pprint
 
 DRAGON_TAIL = 'app/mod_riot/dragontail-6.4.1/6.4.1/data/en_US/'
-print os.getcwd()
+CHAMPION_IMAGE = 'app/mod_riot/dragontail-6.4.1/6.4.1/img/champion/'
+
 def map_champions(id):
     
     with open(DRAGON_TAIL+'champion.json') as datafile:
@@ -20,12 +21,17 @@ def map_champions(id):
             if int(value['key']) == id:
                 return champion
                 #TODO: currently only returns the name
-        
+
+
+#returns the file, not sure if it's the best practice
+def get_splash_art(champion):
+    
+    for image in os.listdir(CHAMPION_IMAGE):
+        fileName = champion + ".png"
+        if image == fileName:
+            with open(CHAMPION_IMAGE+fileName, 'r') as f:
+                return f
+                
     
 def map_items(id):
     pass
-
-
-id = 40
-
-print map_champions(id)
