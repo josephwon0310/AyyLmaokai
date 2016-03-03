@@ -46,11 +46,31 @@
                 <colgroup>
                     <col class="chmapion_img">
                     <col class="player_name">
+                    <col class="dropdown_icon">
                 </colgroup>
 
+                <!-- use bootsrap dropdowns for this -->
                 {% for player in game.theirs %}
                 <tr class="Player">
+                    <!--image -->
+                    <img></img>
 
+                    <!--player name-->
+                    <p></p>
+
+                    <!--dropdown button -->
+                    <button data-toggle="dropdown">
+                        <img></img>
+                    </button>
+
+                    <!-- what comes down when you do the dropdown -->
+                    <div class="dropdown-menu">
+                        <textarea rows="4">
+
+                        </textarea>
+                        <!--submits form -->
+                        <button></button>
+                    </div>
                 </tr>
                 {% endfor %}
             </table>
