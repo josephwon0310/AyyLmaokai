@@ -11,6 +11,7 @@ SUMMONER_URL = 'https://na.api.pvp.net/api/lol/na/v1.4/summoner'
 STATS_URL = 'https://na.api.pvp.net/api/lol/na/v1.3/stats/by-summoner'
 LEAGUE_URL = 'https://na.api.pvp.net/api/lol/na/v2.5/league'
 GAME_URL = 'https://na.api.pvp.net/api/lol/na/v1.3/game/by-summoner'
+CHAMPIONGG = 'http://api.champion.gg/stats'
 
 #returns the json formatted summary of the requested summoner.
 #Includes ID, name, profileIconID, level, and revisionDate
@@ -88,7 +89,15 @@ def get_game_stat(sum_ID, API_KEY):
         
 #=======CHAMPION GG INTEGRATION============
 
-# def get_trending_champs(API_KEY):
+#returns a json object of most played champions
+def get_trending_champs(API_KEY, limit):
     
-#     url = 
-
+    url = "{}/champs/mostPlayed?api_key={}&page=1&limit=10".format(CHAMPIONGG, API_KEY)
+    r = requests.get(url)
+    
+    if r.status_code == 200:
+        data = r.json()['data'] #list of json objects
+        return data
+        
+    elif r.status_code == 404:
+        return 404
