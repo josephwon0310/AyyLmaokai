@@ -14,6 +14,8 @@ class Champion:
         self.kills = obj['general']['kills']
         self.deaths = obj['general']['deaths']
         self.assists = obj['general']['assists']
+        print "Name" + self.name
+        self.image = mod_riot.mapper.get_splash_art(self.name)
 
     def __repr__(self):
         return "Champion: " + self.name + "\n" + "Kills: " + str(self.kills)

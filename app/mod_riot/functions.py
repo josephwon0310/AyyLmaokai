@@ -87,7 +87,7 @@ def get_current_match(sum_ID, API_KEY):
         return [blueTeam, redTeam]
 
     elif r.status_code == 404: #not in game
-        retuxrn 404
+        return 404
 
 #returns the json object of the challenger tier
 def get_challenger_list(API_KEY):
