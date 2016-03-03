@@ -65,11 +65,31 @@
 
                     <!-- what comes down when you do the dropdown -->
                     <div class="dropdown-menu">
-                        <textarea rows="4">
+                        <form action="">
+                            <textarea rows="4">
 
-                        </textarea>
-                        <!--submits form -->
-                        <button></button>
+                            </textarea>
+                            <input type="checkbox" name="rel_def_comm_1">
+                                <!--default comment-->
+                            </input>
+                            <input type="checkbox" name="rel_def_comm_2">
+                                <!--default comment-->
+                            </input>
+                            <input type="checkbox" name="rel_def_comm_3">
+                                <!--default comment-->
+                            </input>
+                            <input type="checkbox" name="rel_def_comm_4">
+                                <!--default comment-->
+                            </input>
+                            <input type="checkbox" name="rel_def_comm_5">
+                                <!--default comment-->
+                            </input>
+                            <input type="checkbox" name="rel_def_comm_6">
+                                <!--default comment-->
+                            </input>
+                            <!--submits form -->
+                            <input type="submit" value="Submit">
+                        </form>
                     </div>
                 </tr>
                 {% endfor %}
