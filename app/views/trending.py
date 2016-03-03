@@ -1,47 +1,32 @@
 from flask import Blueprint, render_template
+from flask import current_app
 from app import app
+from app import mod_riot
 
 trending = Blueprint('trending', __name__)
 
-'''
-    This is a multiline comment wtf?????
+class Champion:
+    def __init__(self, obj):
+        self.name = obj['name']
+        self.win_percent = obj['general']['winPercent']
+        self.play_percent = obj['general']['playPercent']
+        self.ban_rate = obj['general']['banRate']
+        self.kills = obj['general']['kills']
+        self.deaths = obj['general']['deaths']
+        self.assists = obj['general']['assists']
 
-    Either way the request gives a data array that has objects in
-    this format:
-
-       data: [
-      {
-        key: "LeeSin",
-        role: "Jungle",
-        name: "Lee Sin",
-        general: {
-          winPercent: 48.08,
-          playPercent: 35.06,
-          banRate: 3.56,
-          experience: 108.12,
-          kills: 6.75,
-          deaths: 6.07,
-          assists: 9.06,
-          totalDamageDealtToChampions: 14632,
-          totalDamageTaken: 28749,
-          totalHeal: 5831,
-          largestKillingSpree: 3.16,
-          minionsKilled: 37.5,
-          neutralMinionsKilledTeamJungle: 53.15,
-          neutralMinionsKilledEnemyJungle: 8.84,
-          goldEarned: 11335,
-          overallPosition: 20,
-          overallPositionChange: -1
-        }
-
-        so we send these as objects to the layout to update w/e
-'''
+    def __repr__(self):
+        return "Champion: " + self.name + "\n" + "Kills: " + str(self.kills)
 
 @app.route('/trending')
 def trending_champs():
-    #get stats of all champs ordered by most played
+    CHAMPION_GG = current_app.config.get('CHAMPIONGG_API_KEY')
+    champs = mod_riot.functions.get_mostplayed_champs(CHAMPION_GG, 10)
     trending_champ_list = []
-    #take only first ten champs
-    trending_champ_list = trending_champ_list[0:10]
 
-    return render_template('/trending/trending.html', tr_champ_list=trending_champ_list)
+    for champ in champs:
+        champ_to_add = Champion(champ)
+        trending_champ_list.append(champ_to_add)
+
+    return render_template('/trending/trending.html', \
+        tr_champ_list=trending_champ_list)
