@@ -7,15 +7,16 @@ from app.forms import *
 
 home = Blueprint('home', __name__)
 
-@home.route('/', methods=['GET','POST'])
+#@home.route('/', methods=['GET','POST'])
+@home.route('/')
 def index():
     # form = SummonerForm()
     # #print form.summonerName
     # if form.validate_on_submit():
     #     print "wtf"
     #     return form.summonerName
-    if request.method == 'POST':
-        return redirect(url_for('profile.index'))
+    # if request.method == 'POST':
+    #     return redirect(url_for('profile.index'))
     
     return render_template('home/home.html')
 
@@ -35,7 +36,7 @@ def test():
     
     return render_template('fck.html', winPercent=winPercent)
 
-@home.route('/result', methods=['GET','POST'])
+@home.route('/', methods=['POST'])
 def riot_request():
 
     API_KEY = current_app.config.get('RIOT_API_KEY') #api_key for riotgames
@@ -54,7 +55,7 @@ def riot_request():
     #retrieve ranked stats
     rankedDTO = f.get_ranked_stats(summonerId, 'SEASON2016', API_KEY)
     
-    # return render_template('home/test.html', rankedDTO=rankedDTO
-    #                                        , summonerId=summonerId
-    #                                        , level=level)
-    return redirect(url_for('profile.index'))
+    return render_template('home/test.html', rankedDTO=rankedDTO
+                                           , summonerId=summonerId
+                                           , level=level)
+    #return redirect(url_for('profile.index'))
