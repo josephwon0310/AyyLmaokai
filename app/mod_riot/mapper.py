@@ -7,7 +7,7 @@ import os
 
 from pprint import pprint
 
-DRAGON_TAIL = 'app/mod_riot/dragontail-6.4.1/6.4.1/data/en_US/'
+DRAGON_TAIL = 'app/mod_riot/dragontail-6.4.2/6.4.2/data/en_US/'
 print os.getcwd()
 def map_champions(id):
     

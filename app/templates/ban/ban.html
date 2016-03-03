@@ -1,0 +1,9 @@
+{% extends "layout.html" %}
+
+{% block content %}
+	<ul>
+        {% for champs in test %}
+            <li>{{ champs['name'] }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
