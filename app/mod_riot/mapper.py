@@ -36,13 +36,7 @@ def map_champions(id):
 
 #returns the file, not sure if it's the best practice
 def get_splash_art(champion):
-    
-    for image in os.listdir(CHAMPION_IMAGE):
-        fileName = champion + ".png"
-        if image == fileName:
-            with open(CHAMPION_IMAGE+fileName, 'r') as f:
-                return f
-                
-    
+    #joseph will rewrite
+
 def map_items(id):
     pass
