@@ -1,0 +1,8 @@
+.navbar-inverse .navbar-inner {
+    /* border-bottom: 5px solid #2980b9; */
+    font-family: 'AlternateGothicW02-No2D', Arial, sans-serif;
+    font-weight: 100;
+    font-size: 17px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}

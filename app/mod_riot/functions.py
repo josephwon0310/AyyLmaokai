@@ -46,7 +46,7 @@ def get_ranked_stats(sum_ID, season, API_KEY):
         
         #maps the data one to one
         for champion in rankedChampions:
-            champion['id'] = map_champions(champion['id'])
+            champion['id'] = map_champions(champion['id'])#replaces the id to the champion names
         
         return rankedChampions
         
@@ -90,7 +90,7 @@ def get_game_stat(sum_ID, API_KEY):
 #=======CHAMPION GG INTEGRATION============
 
 #returns a json object of most played champions
-def get_trending_champs(API_KEY, limit):
+def get_mostplayed_champs(API_KEY, limit):
     
     url = "{}/champs/mostPlayed?api_key={}&page=1&limit=10".format(CHAMPIONGG, API_KEY)
     r = requests.get(url)
