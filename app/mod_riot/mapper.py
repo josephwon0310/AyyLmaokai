@@ -44,6 +44,20 @@ def map_champions(id):
             return champion
             #TODO: currently only returns the name
 
+#maps roman to integer
+def roman_to_integer(char):
+    
+    if char == 'V':
+        return 5
+    elif char == 'IV':
+        return 4
+    elif char == 'III':
+        return 3
+    elif char == 'II':
+        return 2
+    elif char == 'I':
+        return 1
+
 
 #returns the response object of the image
 def get_splash_art(champion):

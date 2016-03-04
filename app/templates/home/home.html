@@ -2,9 +2,9 @@
 {% block content %}
 <div>
     <h1>Enter in a summoner name</h1>
-        <form actions="." method="POST">
-            <input type="text" name="text">
-            <input type="submit" name="my-form" value="Send">
+        <form action="/profile" method="post">
+            <input type="text" name="summonerName"/>
+            <input type="submit" value="Submit"/>
         </form>
 </div>
 {% endblock %}

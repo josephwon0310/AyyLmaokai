@@ -11,7 +11,9 @@ SUMMONER_URL = 'https://na.api.pvp.net/api/lol/na/v1.4/summoner'
 STATS_URL = 'https://na.api.pvp.net/api/lol/na/v1.3/stats/by-summoner'
 LEAGUE_URL = 'https://na.api.pvp.net/api/lol/na/v2.5/league'
 GAME_URL = 'https://na.api.pvp.net/api/lol/na/v1.3/game/by-summoner'
+MATCH_HISTORY_URL = 'https://na.api.pvp.net/api/lol/na/v2.2/matchlist/by-summoner'
 CURRENT_MATCH = 'https://na.api.pvp.net/observer-mode/rest/consumer/getSpectatorGameInfo/NA1'
+
 
 CHAMPIONGG = 'http://api.champion.gg/stats'
 
@@ -36,6 +38,35 @@ def get_sum_DTO(sum_name, API_KEY):
     if r.status_code == 200:
         return r.json()
     elif r.status_code == 404: #summoner name not found
+        return 404
+
+#return the json league(ranked) info of the user
+def get_league(sum_ID, API_KEY):
+    
+    url = '{}/by-summoner/{}/entry?api_key={}'.format(LEAGUE_URL, sum_ID, API_KEY)
+    r = requests.get(url)
+    
+    if r.status_code == 200:
+        dataBag = r.json()
+        data = dataBag[str(sum_ID)][0]
+        return data
+        
+    elif r.status_code == 404:
+        return 404
+    
+#returns the list of matches for specific season
+def get_match_history(sum_ID, season, API_KEY):
+    
+    url = '{}/{}?seasons={}&api_key={}'.format(MATCH_HISTORY_URL, sum_ID, season, API_KEY)
+    r = requests.get(url)
+    
+    if r.status_code == 200:
+        data = r.json()
+        matches = data['matches'] #list of matches(json object)
+        
+        return matches
+        
+    elif r.status_code == 404:
         return 404
 
 #returns the json formatted summary of the mastery pages.

@@ -1,3 +1,53 @@
+{% extends "layout.html" %}
+{% block content %}
 <div>
-    <p> AY LMAO </p>
+    
+    <div class="wrapper">
+        <div class="header">
+            <h1> name: {{ summoner.name }} </h1>
+            <img src={{ url_for('static', filename=summoner.profileIcon) }}/>
+            
+            <div class="leagueWrapper">
+                
+                <div class="medal">
+                    <img src={{ url_for('static', filename=summoner.medalImage) }}/>
+                </div>
+                
+                <div class="league">
+                    
+                    <div>
+                        <p>League: {{ summoner.league['name'] }}</p>
+                    </div>
+                    <div>
+                        <p> {{ summoner.league['tier'] }} {{ summoner.league['entries'][0]['division'] }}</p>
+                    </div>
+                    <div>
+                        <p> {{ summoner.league['entries'][0]['leaguePoints'] }}lp </p>
+                    </div>
+                    
+                </div>
+                
+            </div>
+            <p> level: {{ summoner.level }}</p>
+        </div>
+        
+        <div class="content">
+            <div class="rankedStatWrapper">
+                <div class ="rankedStatList">
+                {% for champ in rankedStat %}
+                    <div class="rankedStat" style="display:inline-block">
+                        <img class="champion" src={{ url_for('static', filename=champ.image) }}/>
+                        <p>{{ champ.name }}</p>
+                        <p>{{ champ.get_winrate() }}%</p>
+                        <p>{{ champ.gamesPlayed }} Games</p>
+                        <p>KDA: {{ champ.get_kda() }}</p>
+                        <p>{{ champ.get_cs() }} CS</p>
+                    </div>
+                {% endfor %}
+                </div>
+            </div>
+        </div>
+        
+    </div>
 </div>
+{% endblock %}
