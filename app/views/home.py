@@ -20,7 +20,7 @@ def index():
     #     return form.summonerName
     # if request.method == 'POST':
     #     return redirect(url_for('profile.index'))
-    
+
     return render_template('home/home.html')
 
 
@@ -28,16 +28,15 @@ def index():
 ##Example code on how to use ChampionGG data
 @home.route('/testChamp')
 def test():
-    
+
     API_KEY = current_app.config.get('CHAMPIONGG_API_KEY')
-    
     data = f.get_champion_data('singed', API_KEY)
-   
+
    #Example
     winPercent = data[0]['general']
     banRate = data[0]['banRate']
     cs = data[0]['minionsKilled']
-    
+
     return render_template('fck.html', winPercent=winPercent)
 
 
@@ -47,13 +46,13 @@ def imagetest():
 
     #Currently harcoded to return Nami's image
     champion = "Nami.png"
-    
-    #this is the response object 
+
+    #this is the response object
     image = m.get_splash_art(champion)
-    
+
     wah = make_response(image.content)
     wah.headers['Content-Type'] = 'image/png'
-    
+
     return wah
 
 #======TESTING
@@ -62,20 +61,24 @@ def imagetest():
 def riot_request():
 
     API_KEY = current_app.config.get('RIOT_API_KEY') #api_key for riotgames
-    
+
     summonerName = request.form['text']
     summonerName = summonerName.replace(" ", "") #strip all the whitespaces
     summonerDTO = f.get_sum_DTO(summonerName, API_KEY)
     summonerDTO = summonerDTO[summonerName]
-    
+
     #retrieve individual values from summonerDTO
     summonerId = summonerDTO['id']
     summonerIcon = summonerDTO['profileIconId']
     level = summonerDTO['summonerLevel']
     revisionDate = summonerDTO['revisionDate']
-    
+
     #retrieve ranked stats
     rankedDTO = f.get_ranked_stats(summonerId, 'SEASON2016', API_KEY)
+<<<<<<< ea0f52320b3a7b6eef56d8802052099216d6ab76
+=======
+
+>>>>>>> Added images to trending
     return render_template('home/test.html', rankedDTO=rankedDTO
                                            , summonerId=summonerId
                                            , level=level)

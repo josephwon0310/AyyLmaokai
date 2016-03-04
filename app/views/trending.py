@@ -4,6 +4,7 @@ from app import app
 from app import mod_riot
 
 trending = Blueprint('trending', __name__)
+IMAGE_FOLDER = 'images/champion/'
 
 class Champion:
     def __init__(self, obj):
@@ -14,8 +15,8 @@ class Champion:
         self.kills = obj['general']['kills']
         self.deaths = obj['general']['deaths']
         self.assists = obj['general']['assists']
-        print "Name" + self.name
-        self.image = mod_riot.mapper.get_splash_art(self.name)
+        self.image = IMAGE_FOLDER + obj['key'] + '.png'
+        print obj
 
     def __repr__(self):
         return "Champion: " + self.name + "\n" + "Kills: " + str(self.kills)
