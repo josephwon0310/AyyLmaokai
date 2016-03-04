@@ -10,6 +10,7 @@ ban = Blueprint('ban', __name__)
 @ban.route('/ban')
 def bans():
 	API_KEY = current_app.config.get('CHAMPIONGG_API_KEY')
-	test = f.get_highest_winrate_champs(API_KEY, 6)
-	test=test['data']
-	return render_template('ban/ban.html', test = test)
+	highWin = f.get_highest_winrate_champs(API_KEY, 6)['data']
+	mostPlayed = f.get_mostplayed_champs(API_KEY, 6)['data']
+	mostBanned = f.get_mostbanned_champs(API_KEY, 6)['data']
+	return render_template('ban/ban.html', highWin = highWin, mostPlayed = mostPlayed, mostBanned = mostBanned)

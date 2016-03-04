@@ -1,9 +1,24 @@
 {% extends "layout.html" %}
 
 {% block content %}
+	<p>Highest Winrate Champions</p>
 	<ul>
-        {% for champs in test %}
+        {% for champs in highWin %}
             <li>{{ champs['name'] }}</li>
         {% endfor %}
+    </ul>
+
+    <p>Most Played Champions</p>
+    <ul>
+    	{% for champs in mostPlayed %}
+			<li>{{ champs['name'] }}</li>
+    	{% endfor %}
+    </ul>
+
+    <p>Most Banned Champions</p>
+    <ul>
+    	{% for champs in mostBanned %}
+			<li>{{ champs['name'] }}</li>
+    	{% endfor %}
     </ul>
 {% endblock %}

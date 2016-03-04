@@ -21,6 +21,7 @@ Not a very important issue right now, will figure it out later.
 '''
 app.config.from_pyfile('config.py')
 
+from app import views
 #Database
 #TODO
 

@@ -23,7 +23,6 @@ def check_datadragon_version(attribute):
     
     return data[attribute]
 
->>>>>>> 81fc68f5e2832e0b9e1f466977e0dc8e4983ace6
 def map_champions(id):
     
     r = requests.get(DRAGON_TAIL_CHAMPION)
@@ -40,6 +39,7 @@ def map_champions(id):
 #returns the file, not sure if it's the best practice
 def get_splash_art(champion):
     #joseph will rewrite
+    pass
 
 def map_items(id):
     pass

@@ -40,7 +40,6 @@ def get_sum_DTO(sum_name, API_KEY):
 
 #returns the json formatted summary of the mastery pages.
 def get_masteries(sum_ID, API_KEY):
-
     url = '{}/{}/masteries?api_key{}'.format(SUMMONER_URL, sum_ID, API_KEY)
     r = requests.get(url)
 
@@ -121,7 +120,7 @@ def get_mostplayed_champs(API_KEY, limit):
     r = requests.get(url)
 
     if r.status_code == 200:
-        data = r.json()['data'] #list of json objects
+        data = r.json() #list of json objects
         return data
 
     elif r.status_code == 404:
@@ -141,4 +140,11 @@ def get_highest_winrate_champs(API_KEY, limit):
     elif r.status_code == 404:
         return 404
 
-#def get_mostbanned_champs():
+def get_mostbanned_champs(API_KEY, limit):
+    url = "{}/champs/mostBanned?api_key={}&page=1&limit={}".format(CHAMPIONGG, API_KEY, limit)
+    r = requests.get(url)
+    if r.status_code == 200:
+        data = r.json()
+        return data
+    elif r.status_code == 404:
+        return 404
