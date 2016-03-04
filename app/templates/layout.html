@@ -5,28 +5,13 @@
          <meta charset = "utf-8">
          <meta name = "viewport" content = "width = device-width, initial-scale = 1">
          <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-
+         <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
          {% block head %}{% endblock %}
      </head>
      <body>
-         <div id='navbar' class="navbar navbar-inverse navbar-fixed-top" style="position:relative;">
-             <div class="navbar-inner" style="min-width:1000px;">
-                 ::before
-                    <div class="container">
-                        ::before
-                        <a href="/"><strong>LOL Tutor</strong></a>
-                        ::after
-                    </div>
-                 ::after
-             </div>
-             
-         <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
-
-     </head>
-     <body>
          <div class="pure-menu pure-menu-horizontal">
-                <a href="/" class="pure-menu-link pure-menu-heading"> LOL Tutor </a>
-                <ul class="pure-menu-list">
+                <a href="/" class="pure-menu-link pure-menu-heading" id="logo"> LOL Tutor </a>
+                <ul class="pure-menu-list" id='navbar'>
                     <li class="pure-menu-item">Placeholder</li>
                     <li class="pure-menu-item">Placeholder</li>
                     <li class="pure-menu-item">Placeholder</li>       
