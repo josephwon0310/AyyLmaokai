@@ -7,6 +7,7 @@
         <p> level: {{ level }}</p>
         <ul>
         {% for champs in rankedDTO %}
+            <img src="static/images/champion/"+{{ champs['id'] }}/>
             <li>{{ champs['id'] }}</li>
         {% endfor %}
         </ul>
