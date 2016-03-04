@@ -30,8 +30,10 @@ from .views.profile import profile
 from .views.home import home
 from .views.trending import trending
 from .views.ban import ban
+from .views.signup import signup
 
 app.register_blueprint(profile)
 app.register_blueprint(home)
 app.register_blueprint(trending)
 app.register_blueprint(ban)
+app.register_blueprint(signup)
