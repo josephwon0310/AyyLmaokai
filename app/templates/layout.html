@@ -10,7 +10,7 @@
          {% block head %}{% endblock %}
      </head>
      <body>
-         <div class="navbar navbar-inverse navbar-fixed-top" style="position:relative;">
+         <div id='navbar' class="navbar navbar-inverse navbar-fixed-top" style="position:relative;">
              <div class="navbar-inner" style="min-width:1000px;">
                  ::before
                     <div class="container">
@@ -23,9 +23,6 @@
              
          </div>
          {% block content %}{% endblock %}
-         
-         <h2>
-             THIS IS THE BASE TEMPLATE IN THE ROOT OF VIEWS
-         </h2>
+       
      </body>
 </html>

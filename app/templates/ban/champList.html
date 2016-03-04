@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html>
+     <style>
+		#champions{
+			position: absolute;
+			width: 61%;
+			top:15%;
+			left: 0;
+			bottom: 0;
+			overflow: auto;
+		}
+		li {
+			display: inline;
+		}
+	</style>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+    <body>
+     	<div id='champions'>
+     		<script id="champListjs">
+				$(document).ready(function(){
+		    		$("#back").click(function(){
+		        		$("#champions").load("../suggested");
+		    		});
+		    	});
+			
+			</script>
+     		<ul>
+        		{% for champs in champList %}
+					{% if champs['key'].lower() == query or query == "" %}
+						<li><img src='/static/images/champion/{{champs['key']}}.png'></li>
+					{% endif %}
+	        	{% endfor %}
+			</ul>
+			<button type="button" id="back">Back</button>
+       </div>
+     </body>
+</html>
