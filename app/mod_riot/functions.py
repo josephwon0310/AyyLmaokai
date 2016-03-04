@@ -97,6 +97,21 @@ def get_ranked_stats(sum_ID, season, API_KEY):
     elif r.status_code == 404: #ranked stats not found
         return 404
 
+def get_aggregated_ranked_stats(sum_ID, season, API_KEY):
+
+    url = '{}/{}/ranked?season={}&api_key={}'.format(STATS_URL, sum_ID, season ,API_KEY)
+    r = requests.get(url)
+
+    if r.status_code == 200:
+        data = r.json()
+        rankedChampions = data['champions']#list of json objects
+
+        rankedChampions.sort(key=lambda x: x['id'])
+        return rankedChampions[0]
+
+    elif r.status_code == 404: #ranked stats not found
+        return 404
+
 #Returns the list of json info of the current game that the user is in
 def get_current_match(sum_ID, API_KEY):
 

@@ -35,6 +35,8 @@ def dashboard():
     #sort it by games played
     rankedStat.sort(key=lambda x: x.gamesPlayed, reverse=True)
     
+    aggregatedStat = get_aggregated_ranked_stats(summoner.id, 'SEASON2016', RIOT_API_KEY)
+    
     #allMatchDTO = get_match_history(summoner.id, 'SEASON2016', RIOT_API_KEY)
     #matches = [Match(match) for match in allMatchDTO]
     
