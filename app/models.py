@@ -1,10 +1,16 @@
 '''
 This is where you define the models of your application. This may be split into several modules in the same way as views.py.
 '''
+<<<<<<< Updated upstream
 
 from __future__ import division
 
 #Champion object generated from Champion.gg json objects
+=======
+from sqlalchemy import Column, Integer, String
+from app.database import Base
+
+>>>>>>> Stashed changes
 class Champion:
    
     def __init__(self, obj):
@@ -19,6 +25,7 @@ class Champion:
 
     def __repr__(self):
         return "Champion: " + self.name + "\n" + "Kills: " + str(self.kills)
+<<<<<<< Updated upstream
     
     def get_kda(self):
         return (self.kills+self.assists) / self.assists
@@ -89,3 +96,16 @@ class Summoner:
 
         
         
+=======
+
+'''
+class User():
+    __tablename__ = 'users'
+    summoner_name = Column(String(25), unique=True, primary_key=True)
+    password = Column(String(25))
+
+    def __init__(self, summoner_name=None, password=None):
+        self.summoner_name = summoner_name
+        self.password = password
+'''
+>>>>>>> Stashed changes

@@ -7,6 +7,7 @@ feedback = Blueprint('feedback', __name__)
 OUR_TEAM = "OURS"
 THEIR_TEAM = "THEIRS"
 
+'''
 class Game:
     self.out_team = []
     self.their_team = []
@@ -16,6 +17,7 @@ class Players(champion, player_name, team):
     self.name = player_name
     self.team =  team
     self.champion = champion
+'''
 
 @app.route('/feedback')
 def create_feedback():
@@ -27,4 +29,4 @@ def create_feedback():
         return them in class structure above
     '''
 
-    return render_template('/feedback/feedback.html', list_obj=list_obj)
+    return render_template('/feedback/feedback.html')

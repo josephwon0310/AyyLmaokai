@@ -1,5 +1,7 @@
 from flask import Blueprint, render_template
 from flask import current_app
+from flask import current_app, request
+from app import app
 from app import mod_riot
 from app import models
 

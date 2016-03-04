@@ -1,10 +1,11 @@
 from flask.ext.wtf import Form
-from wtforms import StringField
-from wtforms.validators import DataRequired
+from wtforms import TextField, PasswordField, StringField, validators
+from wtforms.validators import DataRequired, EqualTo, Required
 
 class SummonerForm(Form):
     summonerName = StringField('summonerName', validators=[DataRequired()])
 
+<<<<<<< Updated upstream
 class GameBans(Form):
 	ban1 = StringField('ban1', validators=[DataRequired()])
 	ban2 = StringField('ban2', validators=[DataRequired()])
@@ -13,3 +14,8 @@ class GameBans(Form):
 	ban5 = StringField('ban5', validators=[DataRequired()])
 	ban6 = StringField('ban6', validators=[DataRequired()])
 	
+=======
+class SignUpForm(Form):
+    username = StringField('Summoner Name', [Required()])
+    confirm = PasswordField('Confimation')
+>>>>>>> Stashed changes
