@@ -76,7 +76,6 @@ def riot_request():
     
     #retrieve ranked stats
     rankedDTO = f.get_ranked_stats(summonerId, 'SEASON2016', API_KEY)
-    
     return render_template('home/test.html', rankedDTO=rankedDTO
                                            , summonerId=summonerId
                                            , level=level)
