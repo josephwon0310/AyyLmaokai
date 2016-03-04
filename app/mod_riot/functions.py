@@ -117,7 +117,7 @@ def get_game_stat(sum_ID, API_KEY):
 
 #returns a json object of most played champions
 def get_mostplayed_champs(API_KEY, limit):
-    url = "{}/champs/mostPlayed?api_key={}&page=1&limit=10".format(CHAMPIONGG, API_KEY)
+    url = "{}/champs/mostPlayed?api_key={}&page=1&limit={}".format(CHAMPIONGG, API_KEY, limit)
     r = requests.get(url)
 
     if r.status_code == 200:
@@ -126,3 +126,19 @@ def get_mostplayed_champs(API_KEY, limit):
 
     elif r.status_code == 404:
         return 404
+
+#functions for pick/ban/win rate 
+def get_highest_winrate_champs(API_KEY, limit):
+    url = "{}/champs/mostWinning?api_key={}&page=1&limit={}".format(CHAMPIONGG, API_KEY, limit)
+
+   # url = 'http://api.champion.gg/stats/champs/mostWinning?api_key=e0430f17c1fc4b8be9747087bde46f41&page=1&limit=2'
+    r = requests.get(url)
+
+    if r.status_code == 200:
+        data = r.json() #returns dicgtionary
+        return data
+
+    elif r.status_code == 404:
+        return 404
+
+#def get_mostbanned_champs():

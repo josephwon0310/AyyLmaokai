@@ -8,6 +8,8 @@ import requests, shutil
 
 from pprint import pprint
 
+DRAGON_TAIL = 'app/mod_riot/dragontail-6.4.2/6.4.2/data/en_US/'
+print os.getcwd()
 REALM = 'http://ddragon.leagueoflegends.com/realms/na.json'
 DRAGON_TAIL_CHAMPION = 'http://ddragon.leagueoflegends.com/cdn/{}/data/en_US/champion.json'
 CHAMPION_IMAGE = 'http://ddragon.leagueoflegends.com/cdn/{}/img/champion/{}'
@@ -24,6 +26,7 @@ def check_datadragon_version():
         
     else:
         return "SOMETHING IS WITH DATA REALM!"
+
 
 #maps the champion id to its name
 def map_champions(id):
