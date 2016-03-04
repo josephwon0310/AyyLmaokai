@@ -2,24 +2,9 @@ from flask import Blueprint, render_template
 from flask import current_app
 from app import app
 from app import mod_riot
+from app import models
 
 trending = Blueprint('trending', __name__)
-IMAGE_FOLDER = 'images/champion/'
-
-class Champion:
-    def __init__(self, obj):
-        self.name = obj['name']
-        self.win_percent = obj['general']['winPercent']
-        self.play_percent = obj['general']['playPercent']
-        self.ban_rate = obj['general']['banRate']
-        self.kills = obj['general']['kills']
-        self.deaths = obj['general']['deaths']
-        self.assists = obj['general']['assists']
-        self.image = IMAGE_FOLDER + obj['key'] + '.png'
-        print obj
-
-    def __repr__(self):
-        return "Champion: " + self.name + "\n" + "Kills: " + str(self.kills)
 
 @app.route('/trending')
 def trending_champs():
@@ -28,7 +13,7 @@ def trending_champs():
     trending_champ_list = []
 
     for champ in champs:
-        champ_to_add = Champion(champ)
+        champ_to_add = models.Champion(champ)
         trending_champ_list.append(champ_to_add)
 
     return render_template('/trending/trending.html', \

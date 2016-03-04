@@ -75,10 +75,7 @@ def riot_request():
 
     #retrieve ranked stats
     rankedDTO = f.get_ranked_stats(summonerId, 'SEASON2016', API_KEY)
-<<<<<<< ea0f52320b3a7b6eef56d8802052099216d6ab76
-=======
 
->>>>>>> Added images to trending
     return render_template('home/test.html', rankedDTO=rankedDTO
                                            , summonerId=summonerId
                                            , level=level)
