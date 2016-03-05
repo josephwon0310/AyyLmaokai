@@ -5,8 +5,10 @@ This is where you define the models of your application. This may be split into 
 from __future__ import division
 
 #Champion object generated from Champion.gg json objects
+from sqlalchemy import Column, Integer, String
+from app.database import Base
+
 class Champion:
-   
     def __init__(self, obj):
         self.name = obj['name']
         self.win_percent = obj['general']['winPercent']
@@ -19,15 +21,14 @@ class Champion:
 
     def __repr__(self):
         return "Champion: " + self.name + "\n" + "Kills: " + str(self.kills)
-    
+
     def get_kda(self):
         return (self.kills+self.assists) / self.assists
-    
 
 
 #Ranked stat data object for each champions
 class ChampStat:
-    
+
     def __init__(self, obj):
         self.name = obj['id']
         self.totalKills = obj['stats']['totalChampionKills']
@@ -39,7 +40,7 @@ class ChampStat:
         self.creepScore = obj['stats']['totalMinionKills']
         self.totalGold = obj['stats']['totalGoldEarned']
         self.image = 'images/champion/' + str(self.name) + '.png'
-     
+
     #Includes rounding up to reasonable digit for each attributes
     def get_kda(self):
         if self.totalDeaths == 0:
@@ -47,22 +48,22 @@ class ChampStat:
         else:
             kda = ((self.totalKills + self.totalAssists)/self.totalDeaths)
         return round(kda, 2)
-     
+
     def get_cs(self):
         cs = self.creepScore / self.gamesPlayed
         return round(cs, 2)
-     
+
     def get_winrate(self):
         winrate = self.wins * 100 / self.gamesPlayed
         return round(winrate, 1)
-        
+
     def get_gold(self):
         return self.totalGold / self.gamesPlayed
-     
-        
+
+
 #Data object for matches
 class Match:
-    
+
     def __init__(self, obj):
         self.season = obj['season']
         self.matchId = obj['matchId']
@@ -70,12 +71,12 @@ class Match:
         self.lane = obj['lane']
         self.champion = obj['champion']
         self.timestamp = obj['timestamp']
-        
-        
-        
+
+
+
 
 class Summoner:
-    
+
     def __init__(self, obj):
         self.name = obj['name']
         self.id = obj['id']
@@ -85,7 +86,3 @@ class Summoner:
         self.level = obj['summonerLevel']
         self.league = None
         self.medalImage = None
-        
-
-        
-        

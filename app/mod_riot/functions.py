@@ -42,30 +42,30 @@ def get_sum_DTO(sum_name, API_KEY):
 
 #return the json league(ranked) info of the user
 def get_league(sum_ID, API_KEY):
-    
+
     url = '{}/by-summoner/{}/entry?api_key={}'.format(LEAGUE_URL, sum_ID, API_KEY)
     r = requests.get(url)
-    
+
     if r.status_code == 200:
         dataBag = r.json()
         data = dataBag[str(sum_ID)][0]
         return data
-        
+
     elif r.status_code == 404:
         return 404
-    
+
 #returns the list of matches for specific season
 def get_match_history(sum_ID, season, API_KEY):
-    
+
     url = '{}/{}?seasons={}&api_key={}'.format(MATCH_HISTORY_URL, sum_ID, season, API_KEY)
     r = requests.get(url)
-    
+
     if r.status_code == 200:
         data = r.json()
         matches = data['matches'] #list of matches(json object)
-        
+
         return matches
-        
+
     elif r.status_code == 404:
         return 404
 
@@ -152,12 +152,12 @@ def get_mostplayed_champs(API_KEY, limit):
 
     if r.status_code == 200:
         data = r.json() #list of json objects
-        return data
+        return data['data']
 
     elif r.status_code == 404:
         return 404
 
-#functions for pick/ban/win rate 
+#functions for pick/ban/win rate
 def get_highest_winrate_champs(API_KEY, limit):
     url = "{}/champs/mostWinning?api_key={}&page=1&limit={}".format(CHAMPIONGG, API_KEY, limit)
 
@@ -196,4 +196,4 @@ def get_champ(API_KEY):
         data=r.json()
         return data
     elif r.status_code == 404:
-        return 404        
+        return 404
