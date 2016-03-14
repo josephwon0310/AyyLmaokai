@@ -8,13 +8,17 @@ from app.mod_riot.mapper import *
 
 profile = Blueprint('profile', __name__)
 
+# @profile.route('/profile')
+# def test():
+#     print request.args
+#     return "Hello world"
 
-@profile.route('/profile', methods=['post'])
+@profile.route('/profile')
 def dashboard():
 
     RIOT_API_KEY = current_app.config.get('RIOT_API_KEY')
-
-    summonerName = request.form['summonerName']
+    #print request.args.get
+    summonerName = request.args.getlist('summonerName')[0]
     summonerName = summonerName.replace(" ", "") #strip all the whitespaces
     summonerDTO = get_sum_DTO(summonerName, RIOT_API_KEY)
     summonerDTO = summonerDTO[summonerName]
@@ -35,8 +39,16 @@ def dashboard():
     #sort it by games played
     rankedStat.sort(key=lambda x: x.gamesPlayed, reverse=True)
     
-    #allMatchDTO = get_match_history(summoner.id, 'SEASON2016', RIOT_API_KEY)
-    #matches = [Match(match) for match in allMatchDTO]
+    aggregatedStat = get_aggregated_ranked_stats(summoner.id, 'SEASON2016', RIOT_API_KEY)
     
-    return render_template('profile/profile.html', summoner = summoner
-                                           , rankedStat=rankedStat)
+    #CURRENT GAME
+    teams = get_current_match(summoner.id, RIOT_API_KEY)
+    if teams != 404:
+        return render_template('profile/profile.html', summoner=summoner
+                                                     , rankedStat=rankedStat
+                                                     , teams=teams)
+    
+    
+    return render_template('profile/profile.html', summoner=summoner
+                                                 , rankedStat=rankedStat
+                                                 , teams=404)

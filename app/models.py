@@ -4,10 +4,12 @@ This is where you define the models of your application. This may be split into 
 
 from __future__ import division
 
-#Champion object generated from Champion.gg json objects
-from sqlalchemy import Column, Integer, String
-from app.database import Base
 
+from sqlalchemy import Column, Integer, String
+#from app.database import Base
+
+
+#Champion object generated from Champion.gg json objects
 class Champion:
     def __init__(self, obj):
         self.name = obj['name']

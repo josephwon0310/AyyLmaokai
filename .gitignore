@@ -2,3 +2,4 @@ venv
 *.pyc
 instance/
 app/mod_riot/dragontail*/
+app/static/.webassets-cache

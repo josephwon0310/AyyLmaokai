@@ -1,6 +1,9 @@
 <!DOCTYPE HTML>
 <html>
      <style>
+        .row {
+            display:inline;
+        }
 		li {
     		display:inline;
 		}
@@ -23,17 +26,25 @@
 		       		});
 		    	});
 			</script>
-			<p>Highest Winrate Champions</p>
-			<ul>
-		        {% for champs in highWin %}
-		            <li><img src='/static/images/champion/{{champs['key']}}.png'></li>
-		        {% endfor %}
-		    </ul>
+            <div class="Container">
+                <div class="header"/>
+                    <p>Highest Winrate Champions</p>
+                </div>
+                <div class="Wrapper">
+                    <ul>
+                        {% for champs in highWin %}
+                        <div class="row">
+                            <img src='/static/images/champion/{{ champs['key'] }}.png'>
+                        </div>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
 
 		    <p>Most Played Champions</p>
 		    <ul>
 		    	{% for champs in mostPlayed %}
-					<li><img src='/static/images/champion/{{champs['key']}}.png'></li>
+					<li><img src='/static/images/champion/{{ champs['key'] }}.png'></li>
 		    	{% endfor %}
 		    </ul>
 
