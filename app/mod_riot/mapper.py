@@ -61,6 +61,8 @@ def roman_to_integer(char):
 
 #returns the response object of the image
 def get_splash_art(champion):
+    #joseph will rewrite
+    pass
     
     version = check_datadragon_version()
     url = CHAMPION_IMAGE.format(version, champion)

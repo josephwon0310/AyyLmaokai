@@ -1,16 +1,21 @@
+$primaryColor: #2E2D47;
+
 html {
     font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-.pure-menu pure-menu-horizontal {
-    font-family: 'AlternateGothicW02-No2D', Arial, sans-serif;
-    font-weight: 100;
-    font-size: 17px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    background-color: black;
+html {
+    color: aqua;
 }
 
-#content {
-    
+html body {
+    background: $primaryColor;
 }
+
+.navbar-default{
+    background-color:red;
+    border-color: green;
+}
+/*.navbar-custom {
+    color: #2E2D47;
+}*/

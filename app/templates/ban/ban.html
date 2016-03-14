@@ -1,9 +1,27 @@
 {% extends "layout.html" %}
 
+{% block head %}
+  	{{ super() }}
+  	<style>
+  		#bans {
+			background-color: blue;
+			position:absolute;
+			top:0;
+			bottom: 0;
+			right:0;
+			width: 39%;
+		}
+	</style>
+  	
+	<script>
+		$(document).ready(function(){
+    		$("#left").load("./suggested");
+    	});
+	</script>
+{% endblock %}
+
 {% block content %}
-	<ul>
-        {% for champs in test %}
-            <li>{{ champs['name'] }}</li>
-        {% endfor %}
-    </ul>
+	<div id='left'></div>
+    
+    <div id='bans'></div>
 {% endblock %}
