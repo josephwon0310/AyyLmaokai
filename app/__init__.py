@@ -26,6 +26,22 @@ from app import views
 #Database
 #TODO
 
+#set up sass compiler
+import os
+from flask.ext import assets
+env = assets.Environment(app)
+env.url = app.static_url_path
+
+env.register(
+    'css_all',
+    assets.Bundle(
+        'all.sass',
+        filters='sass',
+        output='css_all.css'
+    )
+)
+
+
 #Import the Blueprints
 from .views.profile import profile
 from .views.home import home
