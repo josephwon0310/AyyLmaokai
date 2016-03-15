@@ -1,5 +1,51 @@
 /* line 4 */
 body {
-  background: aqua;
-  font: Sans-serif;
+  background: #31284D;
+  font-family: Arial, Sans-Serif;
+}
+
+/* line 8 */
+ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  overflow: hidden;
+  background-color: #31373F;
+}
+
+/* line 15 */
+li {
+  float: left;
+}
+
+/* line 19 */
+li a {
+  display: block;
+  color: #828285;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* line 26 */
+.search-summoner {
+  width: 200px;
+  height: 30px;
+  left: 50%;
+}
+
+/* line 31 */
+.search-wrap {
+  border-radius: 15px;
+  width: 830px;
+  min-height: 250px;
+  margin: 30px auto;
+  background-color: #D5D5D6;
+  left: 50%;
+}
+
+/* line 40 */
+.search {
+  width: 300px;
+  margin: 30px auto;
 }
