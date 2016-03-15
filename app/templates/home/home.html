@@ -1,9 +1,15 @@
 {% extends "layout.html" %} {% block content %}
-<div class="container">
-    <h1>Enter in a summoner name</h1>
-    <form class="SearchInput" action="/profile">
-        <input type="text" name="summonerName" />
-        <input type="submit" value="Submit" />
-    </form>
+{% assets "css_all" %}
+        <link rel=stylesheet type=text/css href={{ ASSET_URL }}></link>
+{% endassets %}
+<h1>Rek dis guy</h1>
+<div class="home">
+    <div class="search-wrap">
+        <form class="search-input" action="/profile">
+            <input class="search-summoner" type="text" name="summonerName" />
+            <br>
+            <input type="submit" value="Submit" />
+        </form>
+    </div>
 </div>
 {% endblock %}
