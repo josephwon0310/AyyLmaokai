@@ -178,6 +178,7 @@ def get_highest_winrate_champs(API_KEY, limit):
 
    # url = 'http://api.champion.gg/stats/champs/mostWinning?api_key=e0430f17c1fc4b8be9747087bde46f41&page=1&limit=2'
     r = requests.get(url)
+    print r
 
     if r.status_code == 200:
         data = r.json() #returns dicgtionary
