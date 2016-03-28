@@ -50,6 +50,7 @@ from .views.ban import ban
 from .views.signup import signup
 #from .views.register import register
 from .views.feedback import feedback
+from .views.dynamic_queue import dynamic_queue
 
 app.register_blueprint(profile)
 app.register_blueprint(home)
@@ -58,3 +59,4 @@ app.register_blueprint(ban)
 app.register_blueprint(signup)
 #app.register_blueprint(register)
 app.register_blueprint(feedback)
+app.register_blueprint(dynamic_queue)
