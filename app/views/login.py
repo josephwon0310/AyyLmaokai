@@ -1,6 +1,8 @@
 from flask import render_template, Blueprint, flash, redirect
 from app import app
 from app import forms
+from app import db,models
+
 # index view function suppressed for brevity
 
 login = Blueprint('login', __name__)

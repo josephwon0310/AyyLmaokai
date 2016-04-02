@@ -3,7 +3,6 @@ This is where you define the models of your application. This may be split into 
 '''
 
 from app import db
-from __future__ import division
 from sqlalchemy import Column, Integer, String
 #from app.database import Base
 
@@ -86,8 +85,9 @@ class Summoner:
         self.medalImage = None
 
 
-class User:
+class User(db.Model):
     def __init__(self, obj):
+        __tablename__ = 'User'
         self.id = db.Column(db.Integer, primary_key)
         self.league_name = db.Column(db.String(25), index=True, unique=True)
         self.password = db.Column(db.String(256), index=True, unique=True)

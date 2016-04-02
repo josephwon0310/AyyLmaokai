@@ -25,6 +25,7 @@ app.config.from_pyfile('config.py')
 from app import views
 #Database
 #TODO
+from flask.ext.sqlalchemy import SQLAlchemy
 
 #set up sass compiler
 import os
@@ -40,6 +41,7 @@ env.register(
         output='css_all.css'
     )
 )
+db = SQLAlchemy(app)
 
 
 #Import the Blueprints
