@@ -2,9 +2,8 @@
 This is where you define the models of your application. This may be split into several modules in the same way as views.py.
 '''
 
+from app import db
 from __future__ import division
-
-
 from sqlalchemy import Column, Integer, String
 #from app.database import Base
 
@@ -30,7 +29,6 @@ class Champion:
 
 #Ranked stat data object for each champions
 class ChampStat:
-
     def __init__(self, obj):
         self.name = obj['id']
         self.totalKills = obj['stats']['totalChampionKills']
@@ -65,7 +63,6 @@ class ChampStat:
 
 #Data object for matches
 class Match:
-
     def __init__(self, obj):
         self.season = obj['season']
         self.matchId = obj['matchId']
@@ -78,7 +75,6 @@ class Match:
 
 
 class Summoner:
-
     def __init__(self, obj):
         self.name = obj['name']
         self.id = obj['id']
@@ -88,3 +84,10 @@ class Summoner:
         self.level = obj['summonerLevel']
         self.league = None
         self.medalImage = None
+
+
+class User:
+    def __init__(self, obj):
+        self.id = db.Column(db.Integer, primary_key)
+        self.league_name = db.Column(db.String(25), index=True, unique=True)
+        self.password = db.Column(db.String(256), index=True, unique=True)
