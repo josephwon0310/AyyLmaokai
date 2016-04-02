@@ -1,16 +1,15 @@
-from flask import render_template, Blueprint, flash, redirect
-from app import app
-from app import forms
-from app import db,models
-
-# index view function suppressed for brevity
+from flask import Blueprint, flash, g, redirect, render_template, \
+    request, session, url_for
+from app import app, db, forms, models
 
 login = Blueprint('login', __name__)
 
 @login.route('/login', methods=['GET', 'POST'])
 def log_in():
-    form = forms.LoginForm()
+    if g.user is not None and g.user.is_authenticated:
+        return redirect(url_for('index'))
+    form = LoginForm()
     if form.validate_on_submit():
-        flash('Login requested for username="%s", password=%s' % (form.username.data, form.password.data))
-    return render_template('login/login.html',  title='Sign In', form=form)
-    #return "hi"
+        return oid.try_login(form.openid.data, ask_for=['username', 'password'])
+    return render_template('login/login.html',  title='Sign In', form=form
+                            providers=app.config['OPENID_PROVIDERS'])

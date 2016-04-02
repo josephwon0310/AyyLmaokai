@@ -1,4 +1,7 @@
 #!flask/bin/python
+import sys
+sys.path.append("..")
+
 import imp
 from migrate.versioning import api
 from app import db
