@@ -17,7 +17,7 @@ class User(db.Model):
         return True
 
     @property
-    def is_anonymous
+    def is_anonymous(self):
         return False
 
     def __repr__(self):

@@ -1,16 +1,16 @@
 import os
 
-
 #Import flask & template operators
 from flask import Flask, render_template
 from flask.ext import assets
 from flask.ext.login import LoginManager
-from flask.ext.openid import OpenId
+from flask.ext.openid import OpenID
 from flask.ext.sqlalchemy import SQLAlchemy
 
 app = Flask(__name__, instance_relative_config=True)
 
 from app import views
+from config import BASE_DIR as basedir
 
 #TODO: might have to change it to another type of cache, simple is not good
 #cache = Cache(app,config={'CACHE_TYPE': 'simple'})
@@ -27,7 +27,7 @@ env.register('css_all',
 env.url = app.static_url_path
 login_manager = LoginManager()
 login_manager.init_app(app)
-oid = OpenId(app, os.path.join(basedir, 'tmp'))
+oid = OpenID(app, os.path.join(basedir, 'tmp'))
 
 #Import the Blueprints
 from .views.profile import profile
