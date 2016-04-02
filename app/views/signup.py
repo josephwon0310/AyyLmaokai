@@ -1,12 +1,16 @@
-from flask import Blueprint, render_template, redirect, url_for
+from flask import render_template, Blueprint, flash, redirect
 from flask import request, make_response
 from flask import current_app
+from app import forms
 
 import requests
 
 
 signup = Blueprint('signup', __name__)
 
-@signup.route('/signup')
+@signup.route('/signup', methods=['GET', 'POST'])
 def sign_up():
-    return "Hello SignUp"
+    form = forms.SignUpForm()
+    if form.validate_on_submit():
+        flash('Login requested for username="%s", password=%s' % (form.username.data, form.password.data))
+    return render_template('login/login.html',  title='Sign In', form=form)

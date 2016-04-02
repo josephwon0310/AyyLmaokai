@@ -15,4 +15,8 @@ class GameBans(Form):
 
 class SignUpForm(Form):
     username = StringField('Summoner Name', [Required()])
-    confirm = PasswordField('Confimation')
+    password = PasswordField('Password', [Required()])
+
+class LoginForm(Form):
+	username = StringField('Summoner Name', [Required()])
+	password = PasswordField('Password', [Required()])
