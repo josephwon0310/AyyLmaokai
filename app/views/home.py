@@ -17,8 +17,6 @@ def index():
     user = g.user
     return render_template('index.html', title='Home', user=user)
 
-
-
 #EXAMPLE OF HOW YOU WOULD RETURN IMAGE FROM REQUEST VIA FLASK
 @home.route('/image')
 def imagetest():
