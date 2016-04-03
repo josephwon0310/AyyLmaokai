@@ -12,8 +12,10 @@ home = Blueprint('home', __name__)
 
 #@home.route('/', methods=['GET','POST'])
 @home.route('/')
+@login_required
 def index():
-    return render_template('home/home.html')
+    user = g.user
+    return render_template('index.html', title='Home', user=user)
 
 
 

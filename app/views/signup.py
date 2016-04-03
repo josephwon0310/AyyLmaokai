@@ -17,4 +17,4 @@ def sign_up():
         u = models.User(league_name = form.username.data)
         db.session.add(u)
         db.session.commit()
-    return render_template('login/login.html',  title='Sign In', form=form)
+    return render_template('signup/signup.html',  title='Sign Up', form=form)
