@@ -2,9 +2,10 @@ from app import db
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
+    email = db.Column(db.String(50), index=True, unique=True)
     league_name = db.Column(db.String(25), index=True, unique=True)
-    password = db.Column(db.String(256), index=True, unique=True)
     rank = db.Column(db.Integer, index=True)
+    password = db.Column(db.String(256))
 
     #false if we wanna troll people lmao
     @property

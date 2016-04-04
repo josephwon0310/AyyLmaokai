@@ -18,5 +18,6 @@ class SignUpForm(Form):
     password = PasswordField('Password', [Required()])
 
 class LoginForm(Form):
-	username = StringField('Summoner Name', [Required()])
+    #change to email field
+	email = StringField('Summoner Name', [Required()])
 	password = PasswordField('Password', [Required()])

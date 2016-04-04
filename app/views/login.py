@@ -1,6 +1,7 @@
-from flask import Blueprint, flash, g, redirect, render_template, \
-    request, session, url_for
-from app import app, db, forms, login_manager, login_functions, models
+from app import app, db, forms, login_manager, models
+from flask import Blueprint, flash, g, redirect, render_template
+from flask import request, session, url_for
+from flask.ext.login import login_required
 
 login = Blueprint('login', __name__)
 
@@ -8,8 +9,22 @@ login = Blueprint('login', __name__)
 def log_in():
     if g.user is not None and g.user.is_authenticated:
         return redirect(url_for('index'))
-    form = LoginForm()
+    form = forms.LoginForm()
     if form.validate_on_submit():
-        return oid.try_login(form.openid.data, ask_for=['username', 'password'])
-    return render_template('login/login.html',  title='Sign In', form=form,
-                            providers=app.config['OPENID_PROVIDERS'])
+        #find user from thingy
+        #check to see if passwords match
+        #login_user(user)
+        #return redirect(url_for('/logged_in_temp'))
+        return 'hi'
+    return render_template('login/login.html', title='Log In', form=form)
+
+@login.route('/logged_in_temp')
+@login_required
+def hell():
+    return 'Logged in as: ' + g.user.email
+
+@login.route('/logout')
+@login_required
+def log_out():
+    logout_user()
+    return redirect(url_for('/'))

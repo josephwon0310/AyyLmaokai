@@ -12,11 +12,11 @@
       {{ form.hidden_tag() }}
       <p>
           Username:<br>
-          {{ form.username(size=80) }}<br>
+          {{ form.email(size=40) }}<br>
       </p>
       <p>
           Password:<br>
-        {{ form.password }}</p>
+        {{ form.password(size=40) }}</p>
       <p><input type="submit" value="Sign In"></p>
   </form>
 {% endblock %}

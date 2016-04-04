@@ -7,27 +7,20 @@ from flask.ext.login import LoginManager
 from flask.ext.openid import OpenID
 from flask.ext.sqlalchemy import SQLAlchemy
 
-app = Flask(__name__, instance_relative_config=True)
-
-from app import views
-from config import BASE_DIR as basedir
-
 #TODO: might have to change it to another type of cache, simple is not good
 #cache = Cache(app,config={'CACHE_TYPE': 'simple'})
 
-#Import the configurations
+app = Flask(__name__, instance_relative_config=True)
 app.config.from_object('config')
-#Import the config file in the instance folder
 app.config.from_pyfile('config.py')
 db = SQLAlchemy(app)
 env = assets.Environment(app)
 env.register('css_all',
-    assets.Bundle('all.sass', filters='sass', output='css_all.css')
-)
+    assets.Bundle('all.sass', filters='sass', output='css_all.css'))
 env.url = app.static_url_path
 login_manager = LoginManager()
 login_manager.init_app(app)
-oid = OpenID(app, os.path.join(basedir, 'tmp'))
+login_manager.login_view = 'login'
 
 #Import the Blueprints
 from .views.profile import profile
