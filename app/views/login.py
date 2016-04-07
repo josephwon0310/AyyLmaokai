@@ -11,10 +11,10 @@ def log_in():
         return redirect(url_for('index'))
     form = forms.LoginForm()
     if form.validate_on_submit():
-        #find user from thingy
-        #check to see if passwords match
-        #login_user(user)
-        #return redirect(url_for('/logged_in_temp'))
+        user = User.query.filter(User.email == " ").first()
+        if form.password.data === user.password:
+            login_user(user)
+            return redirect(url_for('/logged_in_temp'))
         return 'hi'
     return render_template('login/login.html', title='Log In', form=form)
 
