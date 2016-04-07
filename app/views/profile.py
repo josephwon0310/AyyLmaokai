@@ -39,6 +39,20 @@ def dashboard():
     #sort it by games played
     rankedStat.sort(key=lambda x: x.gamesPlayed, reverse=True)
 
+    # ==================================
+    #Retrive games stats
+    recentGamesDto = get_game_stat(summoner.id, RIOT_API_KEY)
+    games = [Game(game) for game in recentGamesDto]
+    rawStats = [RawStatsDTO(stat) for stat in games]
+    wardsBought = 0
+    #Count total number of wards bought
+    for rawstat in rawStats:
+        wardsBought = wardsBought + rawstat.sightWardsBought + visionWardsBought
+    #====================================
+
+    
+    
+
     aggregatedStat = get_aggregated_ranked_stats(summoner.id, 'SEASON2016', RIOT_API_KEY)
 
     #CURRENT GAME

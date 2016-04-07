@@ -61,7 +61,15 @@ class Match:
         self.champion = obj['champion']
         self.timestamp = obj['timestamp']
 
+#Data object for games
+class Game:
+    def __init__(self, obj):
+        RawStatsDTO = object['RawStatsDto']
 
+class RawStatsDTO:
+    def __init__(self, obj):
+        sightWardsBought = object('sightWardsBought')
+        visionWardsBought = object('visionWardsBoughtInGame')
 
 
 class Summoner:
