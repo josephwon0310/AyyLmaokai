@@ -41,13 +41,22 @@ def dashboard():
 
     # ==================================
     #Retrive games stats
-    recentGamesDto = get_game_stat(summoner.id, RIOT_API_KEY)
-    games = [Game(game) for game in recentGamesDto]
-    rawStats = [RawStatsDTO(stat) for stat in games]
     wardsBought = 0
+    games = get_game_stat(summoner.id, RIOT_API_KEY)
+    games = games['games']
+    rawStats = []
+    for game in games:
+        print "\n\n\n"
+        print "\n\n\n"
+        print game
+        stats = game['stats']
+        wardsBought = wardsBought + stats['visionWardsBought']
+        print "\nWards: "
+        print wardsBought
+        print "\n"
+    
     #Count total number of wards bought
-    for rawstat in rawStats:
-        wardsBought = wardsBought + rawstat.sightWardsBought + visionWardsBought
+        
     #====================================
 
     
@@ -60,9 +69,11 @@ def dashboard():
     if teams != 404:
         return render_template('profile/profile.html', summoner=summoner
                                                      , rankedStat=rankedStat
-                                                     , teams=teams)
+                                                     , teams=teams
+                                                     , wardsBought = wardsBought)
 
 
     return render_template('profile/profile.html', summoner=summoner
                                                  , rankedStat=rankedStat
-                                                 , teams=404)
+                                                 , teams=404
+                                                 , wardsBought = wardsBought)
