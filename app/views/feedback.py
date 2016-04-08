@@ -1,5 +1,4 @@
 from flask import Blueprint, render_template
-from app import app
 
 feedback = Blueprint('feedback', __name__)
 
@@ -19,7 +18,7 @@ class Players(champion, player_name, team):
     self.champion = champion
 '''
 
-@app.route('/feedback')
+@feedback.route('/feedback')
 def create_feedback():
     #get list of last games and player names
 

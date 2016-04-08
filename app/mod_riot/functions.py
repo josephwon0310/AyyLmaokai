@@ -45,7 +45,6 @@ def get_champ_mastery(sum_ID, API_KEY):
 #returns the json formatted summary of the requested summoner.
 #Includes ID, name, profileIconID, level, and revisionDate
 def get_sum_DTO(sum_name, API_KEY):
-
     url = '{}/by-name/{}?api_key={}'.format(SUMMONER_URL, sum_name, API_KEY)
     r = requests.get(url)
 
@@ -56,7 +55,6 @@ def get_sum_DTO(sum_name, API_KEY):
 
 #return the json league(ranked) info of the user
 def get_league(sum_ID, API_KEY):
-
     url = '{}/by-summoner/{}/entry?api_key={}'.format(LEAGUE_URL, sum_ID, API_KEY)
     r = requests.get(url)
 
@@ -70,7 +68,6 @@ def get_league(sum_ID, API_KEY):
 
 #returns the list of matches for specific season
 def get_match_history(sum_ID, season, API_KEY):
-
     url = '{}/{}?seasons={}&api_key={}'.format(MATCH_HISTORY_URL, sum_ID, season, API_KEY)
     r = requests.get(url)
 

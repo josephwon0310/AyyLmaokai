@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template
 from flask import request, current_app
 import requests
-from app.models import ChampStat, Summoner, Match
+from app.static_models import ChampStat, Summoner, Match
 from app.mod_riot.functions import *
 from app.mod_riot.mapper import *
 
@@ -22,7 +22,7 @@ def dashboard():
     summonerName = summonerName.replace(" ", "") #strip all the whitespaces
     summonerDTO = get_sum_DTO(summonerName, RIOT_API_KEY)
     summonerDTO = summonerDTO[summonerName]
-    
+
     #generate summoner object
     summoner = Summoner(summonerDTO)
 
@@ -31,13 +31,14 @@ def dashboard():
     summoner.league = leagueInfo
     division = roman_to_integer(summoner.league['entries'][0]['division'])
     summoner.medalImage = 'images/medals/' + summoner.league['tier'] + '_' + str(division) + '.png'
-    
+
     #retrieve ranked stats
     rankedDTO = get_ranked_stats(summoner.id, 'SEASON2016', RIOT_API_KEY)
     #list of champStat instances
     rankedStat = [ChampStat(champ) for champ in rankedDTO if ChampStat(champ).name != None]
     #sort it by games played
     rankedStat.sort(key=lambda x: x.gamesPlayed, reverse=True)
+<<<<<<< HEAD
             
     aggregatedStat = get_aggregated_ranked_stats(summoner.id, 'SEASON2016', RIOT_API_KEY)
     
@@ -45,12 +46,41 @@ def dashboard():
     #TODO!!!!
     masteryList = get_champ_mastery(summoner.id, RIOT_API_KEY)
     
+=======
+
+    # ==================================
+    #Retrive games stats
+    wardsBought = 0
+    games = get_game_stat(summoner.id, RIOT_API_KEY)
+    games = games['games']
+    rawStats = []
+    for game in games:
+        print "\n\n\n"
+        print "\n\n\n"
+        print game
+        stats = game['stats']
+        wardsBought = wardsBought + stats['visionWardsBought']
+        print "\nWards: "
+        print wardsBought
+        print "\n"
+    
+    #Count total number of wards bought
+        
+    #====================================
+
+    
+    
+
+    aggregatedStat = get_aggregated_ranked_stats(summoner.id, 'SEASON2016', RIOT_API_KEY)
+
+>>>>>>> 6c346ef2f7005a95c629aaa0d4870289da443632
     #CURRENT GAME
     teams = get_current_match(summoner.id, RIOT_API_KEY)
     if teams != 404:
         return render_template('profile/profile.html', summoner=summoner
                                                      , rankedStat=rankedStat
                                                      , teams=teams
+<<<<<<< HEAD
                                                      , masteryList=masteryList)
     
     
@@ -58,3 +88,12 @@ def dashboard():
                                                  , rankedStat=rankedStat
                                                  , teams=404
                                                  , masteryList=masteryList)
+=======
+                                                     , wardsBought = wardsBought)
+
+
+    return render_template('profile/profile.html', summoner=summoner
+                                                 , rankedStat=rankedStat
+                                                 , teams=404
+                                                 , wardsBought = wardsBought)
+>>>>>>> 6c346ef2f7005a95c629aaa0d4870289da443632
