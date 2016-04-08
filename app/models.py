@@ -6,6 +6,9 @@ class User(db.Model):
     league_name = db.Column(db.String(25), index=True, unique=True)
     rank = db.Column(db.Integer, index=True)
     password = db.Column(db.String(256))
+    looking_for_lower = db.Column(db.Boolean)
+    looking_for_equal = db.Column(db.Boolean)
+    looking_for_greater = db.Column(db.Boolean)
 
     #false if we wanna troll people lmao
     @property
@@ -22,8 +25,12 @@ class User(db.Model):
         return False
 
     def __repr__(self):
-        return '{User #%d: SummonerName: %s, Rank: %d}\n' % \
-        (self.id, self.league_name, self.rank)
+        if self.league_name is None:
+            self.league_name = "hi"
+        if self.password is None:
+            self.password = "hi"
+        return '{User #%d: SummonerName: %s, Email: %s, Password: %s}\n' % \
+        (self.id, self.league_name, self.email, self.password)
 
     def get_id(self):
         try:

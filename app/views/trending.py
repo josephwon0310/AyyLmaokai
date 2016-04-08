@@ -1,10 +1,12 @@
-from flask import Blueprint, current_app, render_template, request
+from flask import Blueprint, current_app, g, render_template, request
 from app import mod_riot, static_models as models
 
 trending = Blueprint('trending', __name__)
 
 @trending.route('/trending')
 def trending_champs():
+    print g.user
+
     CHAMPION_GG = current_app.config.get('CHAMPIONGG_API_KEY')
     champs = mod_riot.functions.get_mostplayed_champs(CHAMPION_GG, 10)
     trending_champ_list = []

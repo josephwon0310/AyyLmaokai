@@ -12,10 +12,10 @@ profile = Blueprint('profile', __name__)
 # def test():
 #     print request.args
 #     return "Hello world"
-
+#CHIRP CHIRP HELLO
 @profile.route('/profile')
 def dashboard():
-
+#SQUAAAAA 307 SQUAAA
     RIOT_API_KEY = current_app.config.get('RIOT_API_KEY')
     #print request.args.get
     summonerName = request.args.getlist('summonerName')[0]
@@ -31,7 +31,7 @@ def dashboard():
     summoner.league = leagueInfo
     division = roman_to_integer(summoner.league['entries'][0]['division'])
     summoner.medalImage = 'images/medals/' + summoner.league['tier'] + '_' + str(division) + '.png'
-
+#i come from vietnam
     #retrieve ranked stats
     rankedDTO = get_ranked_stats(summoner.id, 'SEASON2016', RIOT_API_KEY)
     #list of champStat instances
@@ -46,6 +46,7 @@ def dashboard():
     masteryList = get_champ_mastery(summoner.id, RIOT_API_KEY)
     
 
+#hello tvd
     # ==================================
     #Retrive games stats
     wardsBought = 0
@@ -70,7 +71,7 @@ def dashboard():
     #====================================
 
     
-    
+    #what is going on
 
     aggregatedStat = get_aggregated_ranked_stats(summoner.id, 'SEASON2016', RIOT_API_KEY)
 
@@ -83,17 +84,10 @@ def dashboard():
                                                      , masteryList=masteryList
                                                      , wardsBought = wardsBought
                                                      , winrate = winrate)
-    
-    
+
     return render_template('profile/profile.html', summoner=summoner
                                                  , rankedStat=rankedStat
                                                  , teams=404
                                                  , masteryList=masteryList
                                                  , wardsBought = wardsBought
                                                  , winrate = winrate)
-
-
-    # return render_template('profile/profile.html', summoner=summoner
-    #                                              , rankedStat=rankedStat
-    #                                              , teams=404
-    #                                              , wardsBought = wardsBought)
