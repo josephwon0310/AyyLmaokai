@@ -12,6 +12,7 @@
     <!-- Jquery -->
     <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
     <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
 </head>
 
 <body>
@@ -37,7 +38,10 @@
         </ul>
       {% endif %}
     {% endwith %}
+    
+    <!-- content inheritance starts here -->
     {% block content %}{% endblock %}
+    <script type="text/javascript" src={{ url_for('static', filename="graphs.js") }}></script>
 </body>
 
 </html>

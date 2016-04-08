@@ -1,10 +1,10 @@
-/* line 5 */
+/* line 6 */
 body {
   background: #31284D;
   font-family: Helvetica, Arial, Sans-Serif;
 }
 
-/* line 9 */
+/* line 10 */
 ul {
   margin: 0;
   padding: 0;
@@ -13,12 +13,12 @@ ul {
   background-color: #31373F;
 }
 
-/* line 17 */
+/* line 18 */
 li {
   float: left;
 }
 
-/* line 21 */
+/* line 22 */
 li a {
   display: block;
   color: #828285;
@@ -27,7 +27,7 @@ li a {
   text-decoration: none;
 }
 
-/* line 28 */
+/* line 29 */
 .search-input {
   position: relative;
   top: 150px;
@@ -36,7 +36,7 @@ li a {
   text-align: center;
 }
 
-/* line 36 */
+/* line 37 */
 .search-summoner {
   border-radius: 10px;
   width: 600px;
@@ -45,7 +45,7 @@ li a {
   text-align: center;
 }
 
-/* line 43 */
+/* line 44 */
 .search-wrap {
   position: absolute;
   top: 15%;
@@ -59,13 +59,13 @@ li a {
   box-shadow: 1px 1px 1px 1px #888888;
 }
 
-/* line 56 */
+/* line 57 */
 .search {
   width: 300px;
   margin: 30px auto;
 }
 
-/* line 61 */
+/* line 62 */
 .top-wrapper {
   position: absolute;
   top: 10%;
@@ -78,36 +78,36 @@ li a {
   height: 250px;
 }
 
-/* line 72 */
+/* line 73 */
 .top-wrapper .itemBox {
   display: inline-block;
   position: relative;
   vertical-align: top;
 }
 
-/* line 78 */
+/* line 79 */
 .placeholder {
   width: auto;
 }
 
-/* line 81 */
+/* line 82 */
 .content-wrap {
   position: relative;
   top: 400px;
 }
 
-/* line 85 */
+/* line 86 */
 .rankedStat {
   background-color: #D5D5D6;
   text-align: center;
 }
 
-/* line 89 */
+/* line 90 */
 .masteryBox {
   text-align: center;
 }
 
-/* line 92 */
+/* line 93 */
 .trendingBox {
   background-color: #D5D5D6;
 }
