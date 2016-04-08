@@ -42,7 +42,7 @@ def dashboard():
     aggregatedStat = get_aggregated_ranked_stats(summoner.id, 'SEASON2016', RIOT_API_KEY)
     
     #get champ mastery
-    #TODO!!!!
+    #returns the mastery of top 3 champions
     masteryList = get_champ_mastery(summoner.id, RIOT_API_KEY)
     
 
@@ -52,11 +52,17 @@ def dashboard():
     games = get_game_stat(summoner.id, RIOT_API_KEY)
     games = games['games']
     rawStats = []
+    winrate = 0
     for game in games:
         stats = game['stats']
-        # break
+        if stats['win'] == True:
+            winrate += 1
         if 'visionWardsBought' in stats.keys():
             wardsBought = wardsBought + stats['visionWardsBought']
+    
+    print winrate
+    #winrate of 10 recent games
+    
 
     
     #Count total number of wards bought
@@ -75,17 +81,19 @@ def dashboard():
                                                      , rankedStat=rankedStat
                                                      , teams=teams
                                                      , masteryList=masteryList
-                                                     , wardsBought = wardsBought)
+                                                     , wardsBought = wardsBought
+                                                     , winrate = winrate)
     
     
     return render_template('profile/profile.html', summoner=summoner
                                                  , rankedStat=rankedStat
                                                  , teams=404
                                                  , masteryList=masteryList
-                                                 , wardsBought = wardsBought)
+                                                 , wardsBought = wardsBought
+                                                 , winrate = winrate)
 
 
-    return render_template('profile/profile.html', summoner=summoner
-                                                 , rankedStat=rankedStat
-                                                 , teams=404
-                                                 , wardsBought = wardsBought)
+    # return render_template('profile/profile.html', summoner=summoner
+    #                                              , rankedStat=rankedStat
+    #                                              , teams=404
+    #                                              , wardsBought = wardsBought)

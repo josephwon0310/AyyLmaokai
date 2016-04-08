@@ -23,13 +23,14 @@
                         <p> {{ summoner.league['entries'][0]['leaguePoints'] }}lp </p>
                     </div>
                     <div>
-                        <p> {{ wardsBought}}
+                        <p>avg wards bought(recent 10 games): {{ wardsBought/10}} </p>
                     </div>
                 </div>
             </div>
             
             <div class="itemBox placeholder">
-                <p> placeHolder </p>
+                <p> Recent 10 games winrate </p>
+                <p> {{ winrate * 10 }}% </p>
             </div>    
             
         </div>
