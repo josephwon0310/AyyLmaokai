@@ -1,10 +1,7 @@
 import os
-
-#Import flask & template operators
 from flask import Flask, render_template
 from flask.ext import assets
 from flask.ext.login import LoginManager
-from flask.ext.openid import OpenID
 from flask.ext.sqlalchemy import SQLAlchemy
 
 #TODO: might have to change it to another type of cache, simple is not good
@@ -23,20 +20,24 @@ login_manager.init_app(app)
 login_manager.login_view = '/login'
 
 #Import the Blueprints
-from .views.profile import profile
-from .views.home import home
-from .views.trending import trending
 from .views.ban import ban
-from .views.signup import signup
-from .views.feedback import feedback
+from .views.challenger import challenger
+from .views.current_game import current_game
 from .views.dynamic_queue import dynamic_queue
+from .views.feedback import feedback
+from .views.home import home
 from .views.login import login
+from .views.profile import profile
+from .views.signup import signup
+from .views.trending import trending
 
-app.register_blueprint(profile)
-app.register_blueprint(home)
-app.register_blueprint(trending)
 app.register_blueprint(ban)
-app.register_blueprint(signup)
-app.register_blueprint(feedback)
+app.register_blueprint(challenger)
+app.register_blueprint(current_game)
 app.register_blueprint(dynamic_queue)
+app.register_blueprint(feedback)
+app.register_blueprint(home)
 app.register_blueprint(login)
+app.register_blueprint(profile)
+app.register_blueprint(signup)
+app.register_blueprint(trending)

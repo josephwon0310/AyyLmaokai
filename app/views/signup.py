@@ -12,9 +12,6 @@ signup = Blueprint('signup', __name__)
 def sign_up():
     form = forms.SignUpForm()
     if request.method == 'POST':
-        #flash('Login requested for username="%s", password=%s' % \
-        #(form.username.data, form.password.data))
-
         if (form.password.data != form.confirm.data):
             return
 
