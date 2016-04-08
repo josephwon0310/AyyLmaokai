@@ -25,7 +25,8 @@
                 </div>
             </div>
             
-            <div class="placeholder">
+            <div class="itemBox placeholder">
+                <p> placeHolder </p>
             </div>    
             
         </div>
@@ -41,7 +42,7 @@
                     <div class="rankedStatWrapper">
                         <div class="rankedStatList">
                             {% for champ in rankedStat %}
-                            <div class="rankedStat" style="display:inline-block">
+                            <div class="champBox rankedStat" style="display:inline-block">
                                 <img class="champion" src={{ url_for( 'static', filename=champ.image) }}/>
                                 <p>{{ champ.name }}</p>
                                 <p>{{ champ.get_winrate() }}%</p>
@@ -52,6 +53,19 @@
                             {% endfor %}
                         </div>
                     </div>
+                </div>
+            </div>
+            
+            <div class="mastery">
+                <p>Top3 Champion Mastery</p>
+                <div class="idkcontent">
+                    {% for champ in masteryList %}
+                        <div class="masteryBox" style="display:inline-block">
+                            <img class="champion" src={{ url_for( 'static', filename= "images/champion/" + champ['championId'] + ".png") }}/>
+                            <p>{{ champ['championId'] }}</p>
+                            <p>{{ champ['championPoints'] }} pts</p>
+                        </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>

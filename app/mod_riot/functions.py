@@ -13,7 +13,7 @@ LEAGUE_URL = 'https://na.api.pvp.net/api/lol/na/v2.5/league'
 GAME_URL = 'https://na.api.pvp.net/api/lol/na/v1.3/game/by-summoner'
 MATCH_HISTORY_URL = 'https://na.api.pvp.net/api/lol/na/v2.2/matchlist/by-summoner'
 CURRENT_MATCH = 'https://na.api.pvp.net/observer-mode/rest/consumer/getSpectatorGameInfo/NA1'
-
+MASTERY = 'https://na.api.pvp.net/championmastery/location/NA1/player'
 
 CHAMPIONGG = 'http://api.champion.gg/stats'
 
@@ -25,6 +25,20 @@ def get_champion_data(champion, API_KEY):
     if r.status_code == 200:
         return r.json()
 
+    elif r.status_code == 404:
+        return 404
+
+#returns the top 3 mastery of the summoner
+def get_champ_mastery(sum_ID, API_KEY):
+    url = '{}/{}/topchampions?api_key={}'.format(MASTERY, sum_ID, API_KEY)
+    r = requests.get(url)
+    
+    if r.status_code == 200:
+        data = r.json() #this is a list of top 3 champs
+        for champion in data:
+            champion['championId'] = map_champions(champion['championId'])
+        
+        return data
     elif r.status_code == 404:
         return 404
 

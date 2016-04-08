@@ -38,17 +38,23 @@ def dashboard():
     rankedStat = [ChampStat(champ) for champ in rankedDTO if ChampStat(champ).name != None]
     #sort it by games played
     rankedStat.sort(key=lambda x: x.gamesPlayed, reverse=True)
-    
+            
     aggregatedStat = get_aggregated_ranked_stats(summoner.id, 'SEASON2016', RIOT_API_KEY)
+    
+    #get champ mastery
+    #TODO!!!!
+    masteryList = get_champ_mastery(summoner.id, RIOT_API_KEY)
     
     #CURRENT GAME
     teams = get_current_match(summoner.id, RIOT_API_KEY)
     if teams != 404:
         return render_template('profile/profile.html', summoner=summoner
                                                      , rankedStat=rankedStat
-                                                     , teams=teams)
+                                                     , teams=teams
+                                                     , masteryList=masteryList)
     
     
     return render_template('profile/profile.html', summoner=summoner
                                                  , rankedStat=rankedStat
-                                                 , teams=404)
+                                                 , teams=404
+                                                 , masteryList=masteryList)

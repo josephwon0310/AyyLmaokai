@@ -1,7 +1,7 @@
 /* line 5 */
 body {
   background: #31284D;
-  font-family: Arial, Sans-Serif;
+  font-family: Helvetica, Arial, Sans-Serif;
 }
 
 /* line 9 */
@@ -94,4 +94,20 @@ li a {
 .content-wrap {
   position: relative;
   top: 400px;
+}
+
+/* line 85 */
+.rankedStat {
+  background-color: #D5D5D6;
+  text-align: center;
+}
+
+/* line 89 */
+.masteryBox {
+  text-align: center;
+}
+
+/* line 92 */
+.trendingBox {
+  background-color: #D5D5D6;
 }
