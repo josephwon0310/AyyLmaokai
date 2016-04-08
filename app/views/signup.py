@@ -15,7 +15,7 @@ def sign_up():
         flash('Login requested for username="%s", password=%s' % \
         (form.username.data, form.password.data))
 
-        if (form.password.data !== form.confirm.data):
+        if (form.password.data != form.confirm.data):
             return
 
         #put a random division here because too lazy to

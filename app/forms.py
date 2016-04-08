@@ -1,6 +1,6 @@
-from flask.ext.wtf import Form, SelectMultipleField
-from wtforms import BooleanField, PasswordField, StringField, TextField
-from wtforms.validators import DataRequired, EqualTo, Required, validators
+from flask.ext.wtf import Form
+from wtforms import BooleanField, PasswordField, StringField, TextField, validators
+from wtforms.validators import DataRequired, EqualTo, Required
 
 class DynamicQueueOptions(Form):
     lower_than_me = BooleanField('less_than_me', default=False)

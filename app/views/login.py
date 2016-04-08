@@ -12,7 +12,7 @@ def log_in():
     form = forms.LoginForm()
     if form.validate_on_submit():
         user = User.query.filter(User.email == " ").first()
-        if form.password.data === user.password:
+        if form.password.data == user.password:
             login_user(user)
             return redirect(url_for('/logged_in_temp'))
         return 'hi'

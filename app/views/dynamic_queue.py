@@ -22,7 +22,7 @@ def dynamic():
         player_list.extend(players)
 
     if (user.looking_for_equal):
-        players = User.query.filter(User.division === user.division)
+        players = User.query.filter(User.division == user.division)
         player_list.extend(players)
 
     if (user.looking_for_greater):
