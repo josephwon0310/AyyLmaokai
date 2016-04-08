@@ -44,6 +44,8 @@ def dashboard():
     #get champ mastery
     #returns the mastery of top 3 champions
     masteryList = get_champ_mastery(summoner.id, RIOT_API_KEY)
+    #switch the order of the mastery so #1 goes in the middle
+    masteryList[0], masteryList[1] = masteryList[1], masteryList[0]
     
 
 #hello tvd

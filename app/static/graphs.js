@@ -17,5 +17,15 @@ var winRateData = [
 
 var rwinrateCtx = $("#recentWinrate").get(0).getContext("2d");
 var rwinrateChart = new Chart(rwinrateCtx).Pie(winRateData, {
-    responsive: true
+    responsive: true,
+    segmentShowStroke: false
 });
+
+rwinrateChart.width = 100;
+rwinrateChart.height = 100;
+
+// var rankedData = [
+    
+// ]
+
+// var 

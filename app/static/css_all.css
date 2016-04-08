@@ -75,7 +75,7 @@ li a {
   margin: 0px auto;
   background-color: #D5D5D6;
   width: 1200px;
-  height: 250px;
+  height: 280px;
 }
 
 /* line 73 */
@@ -93,7 +93,7 @@ li a {
 /* line 82 */
 .content-wrap {
   position: relative;
-  top: 400px;
+  top: 380px;
 }
 
 /* line 86 */
@@ -103,11 +103,29 @@ li a {
 }
 
 /* line 90 */
+.mastery {
+  position: relative;
+  left: 0px;
+  right: 0;
+  margin: 0px auto;
+  text-align: center;
+  background-color: #D5D5D6;
+  width: 750px;
+  height: 250px;
+}
+
+/* line 100 */
+.mastery-content {
+  margin-top: 1em;
+}
+
+/* line 103 */
 .masteryBox {
+  margin-right: 0.5em;
   text-align: center;
 }
 
-/* line 93 */
+/* line 107 */
 .trendingBox {
   background-color: #D5D5D6;
 }
