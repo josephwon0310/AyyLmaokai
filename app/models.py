@@ -22,8 +22,12 @@ class User(db.Model):
         return False
 
     def __repr__(self):
-        return '{User #%d: SummonerName: %s, Rank: %d}\n' % \
-        (self.id, self.league_name, self.rank)
+        if self.league_name is None:
+            self.league_name = "hi"
+        if self.password is None:
+            self.password = "hi"
+        return '{User #%d: SummonerName: %s, Email: %s, Password: %s}\n' % \
+        (self.id, self.league_name, self.email, self.password)
 
     def get_id(self):
         try:

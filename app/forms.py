@@ -1,5 +1,6 @@
 from flask.ext.wtf import Form
-from wtforms import BooleanField, PasswordField, StringField, TextField, validators
+from wtforms import BooleanField, PasswordField, StringField
+from wtforms import SelectMultipleField, TextField, validators
 from wtforms.validators import DataRequired, EqualTo, Required
 
 class DynamicQueueOptions(Form):
