@@ -24,6 +24,10 @@
 		       				$("#champSelect").load("../champList","search=" + $('#text').val());
 		       			}
 		       		});
+		       		$("img").click(function(){
+				    	$img = $(this).clone();
+				    	$("#right").show().html($img);
+				    });
 		    	});
 			</script>
             
@@ -39,14 +43,14 @@
 		    <p>Most Played Champions</p>
 		    <ul>
 		    	{% for champs in mostPlayed %}
-					<li><img src='/static/images/champion/{{ champs['key'] }}.png'></li>
+					<img src='/static/images/champion/{{ champs['key'] }}.png'>
 		    	{% endfor %}
 		    </ul>
 
 		    <p>Most Banned Champions</p>
 		    <ul>
 		    	{% for champs in mostBanned %}
-					<li><img src='/static/images/champion/{{champs['key']}}.png'></li>
+					<img src='/static/images/champion/{{champs['key']}}.png'>
 		    	{% endfor %}
 		    </ul>
 		

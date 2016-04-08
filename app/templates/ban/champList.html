@@ -22,6 +22,10 @@
 		    		$("#back").click(function(){
 		        		$("#champions").load("../suggested");
 		    		});
+		    		$("img").click(function(){
+				    	$img = $(this).clone();
+				    	$("#right").show().html($img);
+				    });
 		    	});
 			
 			</script>
