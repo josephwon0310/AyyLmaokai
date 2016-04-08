@@ -20,12 +20,13 @@
         More Skill Than You:<br>
         {{ form.greater_than_me }}<br>
     </p>
-    <p><input type="submit" value="Sign In"></p>
+    <p><input type="submit" value="Find me Friends Pls"></p>
 </form>
 <div>
     {% for player in player_list %}
         <div>
-
+            <p> Summoner Name: {{ player.summonerName }} </p>
+            <p> Email: {{ player.email }} <p>
         </div>
     {% endfor %}
 </div>
