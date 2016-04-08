@@ -5,11 +5,10 @@
     <title>Stuck In Bronze</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width = device-width, initial-scale = 1">
-    
+
     {% assets "css_all" %}
         <link rel=stylesheet type=text/css href={{ ASSET_URL }}></link>
     {% endassets %}
-
     <!-- Jquery -->
     <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
     <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
@@ -21,15 +20,25 @@
         <ul id="navbar_list">
             <li><a href="/" class="navbar-brand"> Stuck In Bronze </a></li>
             <li><a href="/trending">Trending</a></li>
-            <li><a href="#">Placeholder</a></li>
+            <li><a href="/login">Login</a></li>
             <li><a href="#">Placeholder</a></li>
         </ul>
     </div>
-    
+
     <div class="content">
-        {% block content %}{% endblock %}
+
     </div>
+    <hr>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul>
+        {% for message in messages %}
+            <li>{{ message }} </li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+    {% block content %}{% endblock %}
 </body>
 
 </html>
-

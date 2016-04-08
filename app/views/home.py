@@ -1,26 +1,18 @@
-from flask import Blueprint, render_template, redirect, url_for
-from flask import request, make_response
-from flask import current_app
-
-from app.mod_riot import functions as f
-from app.mod_riot import mapper as m
-
+from app.mod_riot import functions as f, mapper as m
+from flask import Blueprint, current_app, g, make_response, redirect
+from flask import render_template, request, make_response, url_for
 import requests
-
 
 home = Blueprint('home', __name__)
 
-#@home.route('/', methods=['GET','POST'])
 @home.route('/')
 def index():
-    return render_template('home/home.html')
-
-
+    user = g.user
+    return render_template('/home/home.html', title='Home', user=user)
 
 #EXAMPLE OF HOW YOU WOULD RETURN IMAGE FROM REQUEST VIA FLASK
 @home.route('/image')
 def imagetest():
-
     #Currently harcoded to return Nami's image
     champion = "Nami.png"
     print request.form['summonerName']
@@ -29,5 +21,4 @@ def imagetest():
 
     wah = make_response(image.content)
     wah.headers['Content-Type'] = 'image/png'
-
     return wah

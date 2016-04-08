@@ -1,5 +1,6 @@
-$font-stack: Arial, Sans-Serif
+$font-stack: Helvetica, Arial, Sans-Serif
 $brand-color: #31284D
+$box-color: #D5D5D6
 
 body
     background: $brand-color
@@ -11,6 +12,7 @@ ul
     list-style-type: none
     overflow: hidden
     background-color: #31373F
+    //background-color: $box-color
 
 li
     float: left
@@ -23,21 +25,69 @@ li
         padding: 14px 16px
         text-decoration: none
 
+.search-input
+    position: relative
+    top: 150px
+    left: 0
+    right: 0
+    //vertical-align: middle
+    text-align: center
+
 .search-summoner
-    width: 200px
+    border-radius: 10px
+    width: 600px
     height: 30px
     left: 50%
+    text-align: center
 
 .search-wrap
+    position: absolute
+    top: 15%
+    left: 0
+    right: 0
     border-radius: 15px
     width: 830px
     min-height: 250px
     margin: 30px auto
-    background-color: #D5D5D6
-    left: 50%
+    background-color: $box-color
+    box-shadow: 1px 1px 1px 1px #888888
 
 
 .search
     width: 300px
     margin: 30px auto
 
+
+.top-wrapper
+    position: absolute
+    top: 10%
+    left: 0px
+    right: 0
+    text-align: center
+    margin: 0px auto
+    background-color: $box-color
+    width: 1200px
+    height: 250px
+
+.top-wrapper .itemBox
+    display: inline-block
+    position: relative
+    vertical-align: top
+    
+
+.placeholder
+    width: auto
+
+.content-wrap
+    position: relative
+    top: 400px
+
+.rankedStat
+    background-color: $box-color
+    text-align: center
+
+.masteryBox
+    text-align: center
+
+.trendingBox
+    background-color: $box-color

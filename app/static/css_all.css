@@ -1,7 +1,7 @@
-/* line 4 */
+/* line 5 */
 body {
   background: #31284D;
-  font-family: Arial, Sans-Serif;
+  font-family: Helvetica, Arial, Sans-Serif;
 }
 
 /* line 8 */
@@ -13,12 +13,12 @@ body {
   background-color: #31373F;
 }
 
-/* line 15 */
+/* line 17 */
 li {
   float: left;
 }
 
-/* line 19 */
+/* line 21 */
 li a {
   display: block;
   color: #828285;
@@ -27,25 +27,87 @@ li a {
   text-decoration: none;
 }
 
-/* line 26 */
-.search-summoner {
-  width: 200px;
-  height: 30px;
-  left: 50%;
+/* line 28 */
+.search-input {
+  position: relative;
+  top: 150px;
+  left: 0;
+  right: 0;
+  text-align: center;
 }
 
-/* line 31 */
+/* line 36 */
+.search-summoner {
+  border-radius: 10px;
+  width: 600px;
+  height: 30px;
+  left: 50%;
+  text-align: center;
+}
+
+/* line 43 */
 .search-wrap {
+  position: absolute;
+  top: 15%;
+  left: 0;
+  right: 0;
   border-radius: 15px;
   width: 830px;
   min-height: 250px;
   margin: 30px auto;
   background-color: #D5D5D6;
-  left: 50%;
+  box-shadow: 1px 1px 1px 1px #888888;
 }
 
-/* line 40 */
+/* line 56 */
 .search {
   width: 300px;
   margin: 30px auto;
+}
+
+/* line 61 */
+.top-wrapper {
+  position: absolute;
+  top: 10%;
+  left: 0px;
+  right: 0;
+  text-align: center;
+  margin: 0px auto;
+  background-color: #D5D5D6;
+  width: 1200px;
+  height: 250px;
+}
+
+/* line 72 */
+.top-wrapper .itemBox {
+  display: inline-block;
+  position: relative;
+  vertical-align: top;
+}
+
+/* line 78 */
+.placeholder {
+  width: auto;
+}
+
+/* line 81 */
+.content-wrap {
+  position: relative;
+  top: 400px;
+}
+
+/* line 85 */
+.rankedStat {
+  background-color: #D5D5D6;
+  text-align: center;
+}
+
+/* line 89 */
+.masteryBox {
+  text-align: center;
+}
+
+/* line 92 */
+.trendingBox {
+  background-color: #D5D5D6;
 }
