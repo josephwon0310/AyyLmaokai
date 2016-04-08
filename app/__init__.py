@@ -20,7 +20,7 @@ env.register('css_all',
 env.url = app.static_url_path
 login_manager = LoginManager()
 login_manager.init_app(app)
-login_manager.login_view = 'login'
+login_manager.login_view = '/login'
 
 #Import the Blueprints
 from .views.profile import profile

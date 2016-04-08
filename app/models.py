@@ -6,6 +6,9 @@ class User(db.Model):
     league_name = db.Column(db.String(25), index=True, unique=True)
     rank = db.Column(db.Integer, index=True)
     password = db.Column(db.String(256))
+    looking_for_lower = db.Column(db.Boolean)
+    looking_for_equal = db.Column(db.Boolean)
+    looking_for_greater = db.Column(db.Boolean)
 
     #false if we wanna troll people lmao
     @property

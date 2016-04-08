@@ -7,6 +7,7 @@ from flask.ext.login import current_user
 def before_request():
     g.user = current_user
 
+#go to login
 @login_manager.unauthorized_handler
 def unauthorized_handler():
     return 'Unauthorized'
@@ -20,5 +21,5 @@ def request_load(request):
     return user
 
 @login_manager.user_loader
-def load_user(email):
-    return User.query.filter(User.email == email).first()
+def load_user(id):
+    return User.query.get(int(id))
