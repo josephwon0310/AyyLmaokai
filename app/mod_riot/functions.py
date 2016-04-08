@@ -90,7 +90,6 @@ def get_masteries(sum_ID, API_KEY):
 #returns the list of json objects
 def get_ranked_stats(sum_ID, season, API_KEY):
 
-    #url = '{}/{}/ranked?season={}&api_key={}'.format(STATS_URL, sum_ID, season, API_KEY)
     url = '{}/{}/ranked?season={}&api_key={}'.format(STATS_URL, sum_ID, season ,API_KEY)
     r = requests.get(url)
 
