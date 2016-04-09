@@ -125,6 +125,11 @@ body {
 }
 
 /* line 107 */
+.champ-name {
+  margin-top: 0;
+}
+
+/* line 110 */
 .trendingBox {
   background-color: #D5D5D6;
 }
