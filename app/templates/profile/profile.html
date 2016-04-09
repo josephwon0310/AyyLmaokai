@@ -43,7 +43,7 @@
                             {% for champ in masteryList %}
                                 <div class="masteryBox" style="display:inline-block">
                                     <img class="champion" src={{ url_for( 'static', filename= "images/champion/" + champ['championId'] + ".png") }}/>
-                                    <p>{{ champ['championId'] }}</p>
+                                    <div class="champ-name"><p>{{ champ['championId'] }}</p></div>
                                     <p>{{ champ['championPoints'] }} pts</p>
                                 </div>
                             {% endfor %}
