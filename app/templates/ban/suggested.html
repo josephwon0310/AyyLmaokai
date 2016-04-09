@@ -24,9 +24,24 @@
 		       				$("#champSelect").load("../champList","search=" + $('#text').val());
 		       			}
 		       		});
+		    		var ban = $("#right li");
+		       		var count=0;
 		       		$("img").click(function(){
 				    	$img = $(this).clone();
-				    	$("#right").show().html($img);
+				    	if(count>5){
+				    		if(count%2===0){
+				    			ban.eq((count+6)/2).show().html($img);
+				    			count=count+1
+				    		}
+				    		else{
+				    			ban.eq((count+15)/2).show().html($img);
+				    			count=count+1
+				    		}
+				    	}
+				    	else{
+					    	ban.eq(count).show().html($img);
+					    	count=count+1;
+					    }
 				    });
 		    	});
 			</script>

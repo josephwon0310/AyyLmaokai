@@ -14,6 +14,7 @@ def log_in():
     if form.validate_on_submit():
         user = User.query.filter(User.email == form.email.data).first()
         print user
+        print User.query.all()
 
         if form.password.data == user.password:
             login_user(user)

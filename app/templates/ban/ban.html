@@ -15,8 +15,6 @@
   	
 	<script>
 		$(document).ready(function(){
-			var ban = ["ban1","ban2","ban3","ban4","ban5","ban6"];
-
     		$("#left").load("./suggested");
     	});
 	</script>
@@ -26,12 +24,33 @@
 	<div id='left'></div>
     
     <div id='right'>
-    	<div id="ban1"></div>
-    	<div id="ban2"></div>
-    	<div id="ban3"></div>
-    	<div id="ban4"></div>
-    	<div id="ban5"></div>
-    	<div id="ban6"></div>
+    	
+    		<p>Bans</p>
+    		<ul>
+	    		<li id="ban0"></li>
+		    	<li id="ban1"></li>
+		    	<li id="ban2"></li>
+		    	<li id="ban3"></li>
+		    	<li id="ban4"></li>
+		    	<li id="ban5"></li>
+		    </ul>
+		
+			<p>Picks</p>
+	    	<ul>
+	    		<li id="pick6"></li>
+		    	<li id="pick7"></li>
+		    	<li id="pick8"></li>
+		    	<li id="pick9"></li>
+		    	<li id="pick10"></li>
+		    </ul>
+		    <ul>
+		    	<li id="pick11"></li>
+		    	<li id="pick12"></li>
+		    	<li id="pick13"></li>
+		    	<li id="pick14"></li>
+		    	<li id="pick15"></li>
+		    </ul>
+		
     	<button type="button" id="next">Next</button>
     </div>
 {% endblock %}
