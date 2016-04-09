@@ -3,18 +3,20 @@
 {% block head %}
   	{{ super() }}
   	<style>
-  		#bans {
-			background-color: blue;
+  		#right {
+			background-color:#31373F;
 			position:absolute;
-			top:0;
+			top:10%;
 			bottom: 0;
 			right:0;
-			width: 39%;
+			width: 40%;
 		}
 	</style>
   	
 	<script>
 		$(document).ready(function(){
+			var ban = ["ban1","ban2","ban3","ban4","ban5","ban6"];
+
     		$("#left").load("./suggested");
     	});
 	</script>
@@ -23,5 +25,13 @@
 {% block content %}
 	<div id='left'></div>
     
-    <div id='bans'></div>
+    <div id='right'>
+    	<div id="ban1"></div>
+    	<div id="ban2"></div>
+    	<div id="ban3"></div>
+    	<div id="ban4"></div>
+    	<div id="ban5"></div>
+    	<div id="ban6"></div>
+    	<button type="button" id="next">Next</button>
+    </div>
 {% endblock %}

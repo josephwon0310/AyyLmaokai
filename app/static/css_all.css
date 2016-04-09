@@ -4,8 +4,9 @@ body {
   font-family: Helvetica, Arial, Sans-Serif;
 }
 
-/* line 10 */
-ul {
+<<<<<<< HEAD
+/* line 8 */
+#navbar_list {
   margin: 0;
   padding: 0;
   list-style-type: none;
