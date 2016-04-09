@@ -50,6 +50,10 @@ def get_sum_DTO(sum_name, API_KEY):
 
     if r.status_code == 200:
         return r.json()
+    
+    elif r.status_code == 403:
+        return 403
+        
     elif r.status_code == 404: #summoner name not found
         return 404
 

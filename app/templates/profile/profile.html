@@ -59,7 +59,7 @@
                             {% for champ in rankedStat %}
                             <div class="champBox rankedStat" style="display:inline-block">
                                 <img class="champion" src={{ url_for( 'static', filename=champ.image) }}/>
-                                <p>{{ champ.name }}</p>
+                                <p><strong>{{ champ.name }}</strong></p>
                                 <p>{{ champ.get_winrate() }}%</p>
                                 <p>{{ champ.gamesPlayed }} Games</p>
                                 <p>KDA: {{ champ.get_kda() }}</p>
