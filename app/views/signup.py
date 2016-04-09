@@ -19,7 +19,6 @@ def sign_up():
                             password = form.password.data,
                             email = form.email.data,
                             rank = 6)
-
             db.session.add(u)
             db.session.commit()
         return redirect('/login')

@@ -21,6 +21,10 @@ def dashboard():
     summonerName = request.args.getlist('summonerName')[0]
     summonerName = summonerName.replace(" ", "") #strip all the whitespaces
     summonerDTO = get_sum_DTO(summonerName, RIOT_API_KEY)
+    
+    if summonerDTO == 403:
+        return render_template('403.html')
+        
     summonerDTO = summonerDTO[summonerName]
 
     #generate summoner object
