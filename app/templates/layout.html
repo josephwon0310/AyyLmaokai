@@ -17,9 +17,12 @@
 
     <script type="text/javascript">
         $(document).ready(function(){
-            if("{{g.user.is_authenticated}}"){
+            if(!"{{g.user.league_name}}"){
+                $("#username").hide();
+                $("#dynamic").hide();
+            }
+            else{
                 $("#navbar_login").hide();
-                $("username").css("display","inline");
             }
         });
     </script>
@@ -34,13 +37,13 @@
             <li><a href="/trending">Trending</a></li>
             <li><a href="/pickban">Pick/Ban</a></li>
             <li style="float:right" id="navbar_login"><a href="/login">Login/Register</a></li>
-            <li style="float:right" id="username" display="none"><a href="#">{{g.user.league_name}}</a>
+            <li style="float:right" id="username"><a href="#">{{g.user.league_name}}</a>
                 <ul id="dropdown_menu">
                     <li><a href="#">Settings</a></li>
                     <li><a href="/logout">Logout</a></li>
                 </ul>
             </li>
-            <li style="float:right"><a href="/dynamic_queue">Find a Game</a></li>
+            <li style="float:right" id="dynamic"><a href="/dynamic_queue">Queue Up!</a></li>
 
         </ul>
     </div>
