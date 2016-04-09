@@ -13,12 +13,14 @@
     <!-- Jquery -->
     <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
     <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
+
     <script type="text/javascript">
         $(document).ready(function(){
-            // if(g.user){
-            //     $("#navbar_login").hide();
-            // }
-            //window.alert({{g.user.division}});
+            if("{{g.user.is_authenticated}}"){
+                $("#navbar_login").hide();
+                $("username").css("display","inline");
+            }
         });
     </script>
     {% block head %}{% endblock %}
@@ -32,6 +34,14 @@
             <li><a href="/trending">Trending</a></li>
             <li><a href="/pickban">Pick/Ban</a></li>
             <li style="float:right" id="navbar_login"><a href="/login">Login/Register</a></li>
+            <li style="float:right" id="username" display="none"><a href="#">{{g.user.league_name}}</a>
+                <ul id="dropdown_menu">
+                    <li><a href="#">Settings</a></li>
+                    <li><a href="/logout">Logout</a></li>
+                </ul>
+            </li>
+            <li style="float:right"><a href="/dynamic_queue">Find a Game</a></li>
+
         </ul>
     </div>
 

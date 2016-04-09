@@ -4,7 +4,6 @@ body {
   font-family: Helvetica, Arial, Sans-Serif;
 }
 
-<<<<<<< HEAD
 /* line 8 */
 #navbar_list {
   margin: 0;
@@ -14,13 +13,12 @@ body {
   background-color: #31373F;
 }
 
-/* line 18 */
-li {
-  float: left;
+#navbar_list li {
+  float:left;
 }
 
 /* line 22 */
-li a {
+#navbar_list a {
   display: block;
   color: #828285;
   text-align: center;
@@ -129,4 +127,27 @@ li a {
 /* line 107 */
 .trendingBox {
   background-color: #D5D5D6;
+}
+
+#dropdown_menu {
+  display: none;
+  position: absolute;
+  list-style: none;
+ 
+}
+
+#dropdown_menu li {
+  float:none;
+  display:list-item;
+  position: relative;
+  background-color: #31373F;
+  text-align: right;
+}
+
+#username:hover > #dropdown_menu{
+  display: inherit;
+}
+
+#right img {
+  max-height: 75px;
 }

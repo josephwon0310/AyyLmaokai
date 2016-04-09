@@ -12,8 +12,6 @@ signup = Blueprint('signup', __name__)
 def sign_up():
     form = forms.SignUpForm()
     if request.method == 'POST':
-        if (form.password.data != form.confirm.data):
-            return
 
         print "Email: " + form.email.data
         print "Password: " + form.password.data
@@ -22,7 +20,7 @@ def sign_up():
         #actualy get real division
         u = models.User(league_name = form.summoner_name.data,
                         password = form.password.data,
-                        email = form.password.data,
+                        email = form.email.data,
                         rank = 6)
 
         db.session.add(u)
