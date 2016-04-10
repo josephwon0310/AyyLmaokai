@@ -23,9 +23,23 @@
 		    		$("#back").click(function(){
 		        		$("#champions").load("../suggested");
 		    		});
-		    		$("img").click(function(){
+		    		var ban = $("#right li");
+		       		$("img").click(function(){
 				    	$img = $(this).clone();
-				    	$("#right").show().html($img);
+				    	if(Number(sessionStorage.count)>5 && Number(sessionStorage.count)<16){
+				    		if(Number(sessionStorage.count)%2===0){
+				    			ban.eq((Number(sessionStorage.count)+6)/2).show().html($img);
+				    			sessionStorage.count=Number(sessionStorage.count)+1;
+				    		}
+				    		else{
+				    			ban.eq((Number(sessionStorage.count)+15)/2).show().html($img);
+				    			sessionStorage.count=Number(sessionStorage.count)+1;
+				    		}
+				    	}
+				    	else{
+					    	ban.eq(sessionStorage.count).show().html($img);
+					    	sessionStorage.count=Number(sessionStorage.count)+1;
+					    }
 				    });
 		    	});
 			
