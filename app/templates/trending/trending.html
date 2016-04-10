@@ -25,17 +25,17 @@
                 <div style="display:inline-block">
                     <!--box for play rate -->
                     <div style="display:inline-block">
-                        <p>Play Rate: {{ champ.play_percent }}</p>
+                        <strong>Play Rate </strong> <p>{{ champ.play_percent }}</p>
                     </div>
 
                     <!-- box for win rate -->
                     <div style="display:inline-block">
-                        <p>Win Rate: {{ champ.win_percent }}</p>
+                        <strong>Win Rate </strong> <p>{{ champ.win_percent }}</p>
                     </div>
 
                     <!-- box for ban rate -->
                     <div style="display:inline-block">
-                        <p>Ban Rate: {{ champ.ban_rate }}</p>
+                        <strong>Ban Rate</strong> <p>{{ champ.ban_rate }}</p>
                     </div>
 
                     <!-- box for kills/death/assists -->
@@ -44,7 +44,6 @@
                     </div>
                 </div>
             </div>
-            <br>
         {% endfor %}
     </div>
     <div class="pure-u-2-3">
