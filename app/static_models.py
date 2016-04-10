@@ -13,8 +13,9 @@ class Champion:
     def __repr__(self):
         return "Champion: " + self.name + "\n" + "Kills: " + str(self.kills)
 
+    #returns rounded kda
     def get_kda(self):
-        return (self.kills+self.assists) / self.assists
+        return round(((self.kills+self.assists) / self.assists), 2)
 
 
 #Ranked stat data object for each champions

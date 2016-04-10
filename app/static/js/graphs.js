@@ -24,8 +24,6 @@ var rwinrateChart = new Chart(rwinrateCtx).Pie(winRateData, {
 rwinrateChart.width = 100;
 rwinrateChart.height = 100;
 
-// var rankedData = [
-    
-// ]
 
-// var 
+
+// Trending Mostplayed Graph
