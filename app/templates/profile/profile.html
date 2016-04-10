@@ -43,15 +43,13 @@
                             {% for champ in masteryList %}
                                 <div class="masteryBox" style="display:inline-block">
                                     <img class="champion" src={{ url_for( 'static', filename= "images/champion/" + champ['championId'] + ".png") }}/>
-                                    <div class="champ-name"><p>{{ champ['championId'] }}</p></div>
+                                    <div class="champ-name"><strong>{{ champ['championId'] }}</strong></div>
                                     <p>{{ champ['championPoints'] }} pts</p>
                                 </div>
                             {% endfor %}
                         </div>
                     </div>
-                    {% if teams != 404 %}
-                        <p>He is currently in a game!</p>
-                    {% endif %}
+
                 </div>
                 <div class="pure-u-1-3">
                     <div class="rankedStatWrapper">
@@ -73,4 +71,5 @@
         </div>
 
     </div>
+    <script type="text/javascript" src={{ url_for('static', filename="js/graphs.js") }}></script>
 {% endblock %}
