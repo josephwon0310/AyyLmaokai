@@ -4,8 +4,8 @@ body {
   font-family: Helvetica, Arial, Sans-Serif;
 }
 
-/* line 8 */
-#navbar_list {
+/* line 10 */
+ul {
   margin: 0;
   padding: 0;
   list-style-type: none;
@@ -13,12 +13,13 @@ body {
   background-color: #31373F;
 }
 
-#navbar_list li {
-  float:left;
+/* line 18 */
+li {
+  float: left;
 }
 
 /* line 22 */
-#navbar_list a{
+li a {
   display: block;
   color: #828285;
   text-align: center;
@@ -67,6 +68,7 @@ body {
 /* line 62 */
 .top-wrapper {
   position: absolute;
+  border-radius: 10px;
   top: 10%;
   left: 0px;
   right: 0;
@@ -77,33 +79,34 @@ body {
   height: 280px;
 }
 
-/* line 73 */
+/* line 74 */
 .top-wrapper .itemBox {
   display: inline-block;
   position: relative;
   vertical-align: top;
 }
 
-/* line 79 */
+/* line 80 */
 .placeholder {
   width: auto;
 }
 
-/* line 82 */
+/* line 83 */
 .content-wrap {
   position: relative;
   top: 380px;
 }
 
-/* line 86 */
+/* line 87 */
 .rankedStat {
   background-color: #D5D5D6;
   text-align: center;
 }
 
-/* line 90 */
+/* line 91 */
 .mastery {
   position: relative;
+  border-radius: 10px;
   left: 0px;
   right: 0;
   margin: 0px auto;
@@ -113,46 +116,39 @@ body {
   height: 250px;
 }
 
-/* line 100 */
+/* line 102 */
 .mastery-content {
   margin-top: 1em;
 }
 
-/* line 103 */
+/* line 105 */
+.profile-container {
+  margin-top: 2em;
+}
+
+/* line 108 */
 .masteryBox {
   margin-right: 0.5em;
   text-align: center;
 }
 
-/* line 107 */
+/* line 112 */
+.imgBox {
+  position: relative;
+}
+
+/* line 116 */
+.championImg {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+/* line 120 */
 .champ-name {
   margin-top: 0;
 }
 
-/* line 110 */
+/* line 123 */
 .trendingBox {
   background-color: #D5D5D6;
-}
-
-#dropdown_menu {
-  display: none;
-  position: absolute;
-  list-style: none;
- 
-}
-
-#dropdown_menu li {
-  float:none;
-  display:list-item;
-  position: relative;
-  background-color: #31373F;
-  text-align: right;
-}
-
-#username:hover > #dropdown_menu{
-  display: inherit;
-}
-
-#right img {
-  max-height: 75px;
 }

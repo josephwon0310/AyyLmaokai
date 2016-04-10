@@ -42,14 +42,25 @@
                         <div class="mastery-content">
                             {% for champ in masteryList %}
                                 <div class="masteryBox" style="display:inline-block">
-                                    <img class="champion" src={{ url_for( 'static', filename= "images/champion/" + champ['championId'] + ".png") }}/>
+                                        {% if masteryList.index(champ) == 1 %}
+                                            <div class="imgBox">
+                                                <img class="championImg masteryImg" style="z-index: 1" src={{ url_for( 'static', filename= "images/champion/" + champ['championId'] + ".png") }}/>
+                                            </div>
+                                        {% else %}
+                                            <div class="imgBox" style="width: 100px">
+                                                <img class="championImg" src={{ url_for( 'static', filename= "images/champion/" + champ['championId'] + ".png") }}/>
+                                            </div>
+                                        {% endif %}
                                     <div class="champ-name"><strong>{{ champ['championId'] }}</strong></div>
                                     <p>{{ champ['championPoints'] }} pts</p>
                                 </div>
                             {% endfor %}
                         </div>
                     </div>
-
+                    
+                    <div class="performance-wrapper">
+                    </div>
+                    
                 </div>
                 <div class="pure-u-1-3">
                     <div class="rankedStatWrapper">
