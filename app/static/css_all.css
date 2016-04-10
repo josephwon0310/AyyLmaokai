@@ -136,6 +136,23 @@ li a {
 .imgBox {
   position: relative;
 }
+  
+/* line 109 */
+.champ-name {
+  margin-top: 0;
+}
+
+/* line 112 */
+.trendingBox {
+  background-color: #D5D5D6;
+}
+
+#dropdown_menu {
+  display: none;
+  position: absolute;
+  list-style: none;
+ 
+}
 
 /* line 116 */
 .championImg {
@@ -151,4 +168,8 @@ li a {
 /* line 123 */
 .trendingBox {
   background-color: #D5D5D6;
+}
+
+#right img {
+  max-height: 75px;
 }
