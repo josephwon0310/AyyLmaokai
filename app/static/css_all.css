@@ -4,8 +4,8 @@ body {
   font-family: Helvetica, Arial, Sans-Serif;
 }
 
-/* line 10 */
-ul {
+/* line 8 */
+#navbar_list {
   margin: 0;
   padding: 0;
   list-style-type: none;
@@ -13,13 +13,12 @@ ul {
   background-color: #31373F;
 }
 
-/* line 18 */
-li {
-  float: left;
+#navbar_list li {
+  float:left;
 }
 
 /* line 22 */
-li a {
+#navbar_list a{
   display: block;
   color: #828285;
   text-align: center;
@@ -68,7 +67,6 @@ li a {
 /* line 62 */
 .top-wrapper {
   position: absolute;
-  border-radius: 10px;
   top: 10%;
   left: 0px;
   right: 0;
@@ -79,34 +77,33 @@ li a {
   height: 280px;
 }
 
-/* line 74 */
+/* line 73 */
 .top-wrapper .itemBox {
   display: inline-block;
   position: relative;
   vertical-align: top;
 }
 
-/* line 80 */
+/* line 79 */
 .placeholder {
   width: auto;
 }
 
-/* line 83 */
+/* line 82 */
 .content-wrap {
   position: relative;
   top: 380px;
 }
 
-/* line 87 */
+/* line 86 */
 .rankedStat {
   background-color: #D5D5D6;
   text-align: center;
 }
 
-/* line 91 */
+/* line 90 */
 .mastery {
   position: relative;
-  border-radius: 10px;
   left: 0px;
   right: 0;
   margin: 0px auto;
@@ -116,23 +113,46 @@ li a {
   height: 250px;
 }
 
-/* line 102 */
+/* line 100 */
 .mastery-content {
   margin-top: 1em;
 }
 
-/* line 105 */
+/* line 103 */
 .masteryBox {
   margin-right: 0.5em;
   text-align: center;
 }
 
-/* line 109 */
+/* line 107 */
 .champ-name {
   margin-top: 0;
 }
 
-/* line 112 */
+/* line 110 */
 .trendingBox {
   background-color: #D5D5D6;
+}
+
+#dropdown_menu {
+  display: none;
+  position: absolute;
+  list-style: none;
+ 
+}
+
+#dropdown_menu li {
+  float:none;
+  display:list-item;
+  position: relative;
+  background-color: #31373F;
+  text-align: right;
+}
+
+#username:hover > #dropdown_menu{
+  display: inherit;
+}
+
+#right img {
+  max-height: 75px;
 }
