@@ -26,6 +26,7 @@ from .views.current_game import current_game
 from .views.dynamic_queue import dynamic_queue
 from .views.feedback import feedback
 from .views.home import home
+from .views.improvement import improvement
 from .views.login import login
 from .views.profile import profile
 from .views.signup import signup
@@ -37,6 +38,7 @@ app.register_blueprint(current_game)
 app.register_blueprint(dynamic_queue)
 app.register_blueprint(feedback)
 app.register_blueprint(home)
+app.register_blueprint(improvement)
 app.register_blueprint(login)
 app.register_blueprint(profile)
 app.register_blueprint(signup)
