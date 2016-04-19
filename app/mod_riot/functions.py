@@ -32,12 +32,12 @@ def get_champion_data(champion, API_KEY):
 def get_champ_mastery(sum_ID, API_KEY):
     url = '{}/{}/topchampions?api_key={}'.format(MASTERY, sum_ID, API_KEY)
     r = requests.get(url)
-    
+
     if r.status_code == 200:
         data = r.json() #this is a list of top 3 champs
         for champion in data:
             champion['championId'] = map_champions(champion['championId'])
-        
+
         return data
     elif r.status_code == 404:
         return 404
@@ -50,10 +50,10 @@ def get_sum_DTO(sum_name, API_KEY):
 
     if r.status_code == 200:
         return r.json()
-    
+
     elif r.status_code == 403:
         return 403
-        
+
     elif r.status_code == 404: #summoner name not found
         return 404
 
@@ -210,6 +210,13 @@ def get_mostbanned_champs(API_KEY, limit):
     elif r.status_code == 404:
         return 404
 
+def get_general_champ_data(API_KEY, champName):
+    url = "http://api.champion.gg/champion/{}/general?api_key={}".format(champName, API_KEY)
+    r = requests.get(url)
+    
+    if r.status_code == 200:
+        return r.json()
+
 def get_champ_list(API_KEY):
     url = "http://api.champion.gg/stats?api_key={}".format(API_KEY)
     r = requests.get(url)
@@ -227,3 +234,34 @@ def get_champ(API_KEY):
         return data
     elif r.status_code == 404:
         return 404
+
+def tier_to_number(tier, division):
+    num = 0
+
+    if (tier == 'SILVER'):
+        num = num + 5
+    elif (tier == 'GOLD'):
+        num = num + 10
+    elif (tier == 'PLATINUM'):
+        num = num + 15
+    elif (tier == 'DIAMOND'):
+        num = num + 20
+    elif (tier == 'MASTER'):
+        num = num + 21
+        return num
+    elif (tier == 'CHALLENGER'):
+        num = num + 22
+        return num
+
+    return num + (5 - division)
+
+def get_numbered_rank_from_sum_ID(summoner_ID, API_KEY):
+    sum_league = get_league(summoner_ID, API_KEY)
+    tier = sum_league['tier']
+    division = roman_to_integer(sum_league['entries'][0]['division'])
+    return tier_to_number(tier, division)
+
+def get_summoner_ID_from_name(summoner_name, API_KEY):
+    sum_DTO = get_sum_DTO(summoner_name, API_KEY)
+    sum_id = sum_DTO[summoner_name.lower()]['id']
+    return sum_id
