@@ -1,4 +1,30 @@
-{% extends "layout.html" %} {% block content %}
+{% extends "layout.html" %}
+
+{% block head %}
+    {{ super() }}
+    <script>
+        $(document).ready(function(){
+            $("#search1").text(localStorage[(Number(localStorage.searchCount)+4)%5]);
+            $("#search1").attr("href","/profile?summonerName="+localStorage[(Number(localStorage.searchCount)+4)%5]);
+            $("#search2").text(localStorage[(Number(localStorage.searchCount)+3)%5]);
+            $("#search2").attr("href","/profile?summonerName="+localStorage[(Number(localStorage.searchCount)+3)%5]);
+            $("#search3").text(localStorage[(Number(localStorage.searchCount)+2)%5]);
+            $("#search3").attr("href","/profile?summonerName="+localStorage[(Number(localStorage.searchCount)+2)%5]);
+            $("#search4").text(localStorage[(Number(localStorage.searchCount)+1)%5]);
+            $("#search4").attr("href","/profile?summonerName="+localStorage[(Number(localStorage.searchCount)+1)%5]);
+            $("#search5").text(localStorage[Number(localStorage.searchCount)%5]);
+            $("#search5").attr("href","/profile?summonerName="+localStorage[Number(localStorage.searchCount)%5]);
+            $(".search-summoner").keydown(function (event){
+                if (event.keyCode == 13){
+                    localStorage[localStorage.searchCount]=$(".search-summoner").val();
+                    localStorage.searchCount=(Number(localStorage.searchCount)+1)%5;
+                }
+            });
+        });
+    </script>
+{% endblock %}
+
+{% block content %}
 {% assets "css_all" %}
         <link rel=stylesheet type=text/css href={{ ASSET_URL }}></link>
 {% endassets %}
