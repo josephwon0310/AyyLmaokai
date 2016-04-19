@@ -9,7 +9,6 @@ snapshot = Table('snapshot', post_meta,
     Column('id', Integer, primary_key=True, nullable=False),
     Column('user_id', Integer),
     Column('snap_time', Date),
-    Column('ward_score', Integer),
     Column('division', Integer),
 )
 

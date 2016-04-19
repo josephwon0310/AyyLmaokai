@@ -21,18 +21,18 @@ def show_improve():
                         snap_time = new_d,
                         division = new_rank)
         db.session.add(s)
-        db.session.commit(s)
+        db.session.commit()
         return render_template('improvement/first_time.html')
 
     time_to_compare  = changes[-1].snap_time
 
-    if (new_d.date() != time_to_compare.date()):
+    if (new_d.date() != time_to_compare):
         s = Snapshot(user_id = g.user.id,
                         snap_time = new_d,
                         division = new_rank)
         changes.append(s)
         db.session.add(s)
-        db.session.commit(s)
+        db.session.commit()
 
     return render_template('improvement/improvement.html', title='Improvement',
         changes=changes)
