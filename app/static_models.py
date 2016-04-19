@@ -42,7 +42,7 @@ class ChampStat:
 
     def get_cs(self):
         cs = self.creepScore / self.gamesPlayed
-        return round(cs, 2)
+        return round(cs, 3)
 
     def get_winrate(self):
         winrate = self.wins * 100 / self.gamesPlayed
@@ -51,6 +51,14 @@ class ChampStat:
     def get_gold(self):
         return self.totalGold / self.gamesPlayed
 
+    def get_avg_kills(self):
+        return self.totalKills / self.gamesPlayed
+    
+    def get_avg_deaths(self):
+        return self.totalDeaths / self.gamesPlayed
+    
+    def get_avg_assists(self):
+        return self.totalAssists / self.gamesPlayed
 
 #Data object for matches
 class Match:

@@ -210,6 +210,13 @@ def get_mostbanned_champs(API_KEY, limit):
     elif r.status_code == 404:
         return 404
 
+def get_general_champ_data(API_KEY, champName):
+    url = "http://api.champion.gg/champion/{}/general?api_key={}".format(champName, API_KEY)
+    r = requests.get(url)
+    
+    if r.status_code == 200:
+        return r.json()
+
 def get_champ_list(API_KEY):
     url = "http://api.champion.gg/stats?api_key={}".format(API_KEY)
     r = requests.get(url)
