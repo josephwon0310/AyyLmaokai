@@ -5,11 +5,12 @@ from migrate import *
 from migrate.changeset import schema
 pre_meta = MetaData()
 post_meta = MetaData()
-snapshot = Table('snapshot', post_meta,
-    Column('id', Integer, primary_key=True, nullable=False),
-    Column('user_id', Integer),
-    Column('snap_time', Date),
-    Column('division', Integer),
+snapshot = Table('snapshot', pre_meta,
+    Column('id', INTEGER, primary_key=True, nullable=False),
+    Column('user_id', INTEGER),
+    Column('snap_time', DATE),
+    Column('ward_score', INTEGER),
+    Column('division', INTEGER),
 )
 
 
@@ -18,11 +19,11 @@ def upgrade(migrate_engine):
     # migrate_engine to your metadata
     pre_meta.bind = migrate_engine
     post_meta.bind = migrate_engine
-    post_meta.tables['snapshot'].create()
+    pre_meta.tables['snapshot'].columns['ward_score'].drop()
 
 
 def downgrade(migrate_engine):
     # Operations to reverse the above upgrade go here.
     pre_meta.bind = migrate_engine
     post_meta.bind = migrate_engine
-    post_meta.tables['snapshot'].drop()
+    pre_meta.tables['snapshot'].columns['ward_score'].create()

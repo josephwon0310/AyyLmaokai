@@ -42,5 +42,4 @@ class Snapshot(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer)
     snap_time = db.Column(db.Date)
-    ward_score = db.Column(db.Integer)
     division = db.Column(db.Integer)
