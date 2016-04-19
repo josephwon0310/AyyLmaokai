@@ -34,5 +34,9 @@ def show_improve():
         db.session.add(s)
         db.session.commit()
 
+    dates = [str(x.snap_time.month) + "/" + str(x.snap_time.day)\
+        for x in changes]
+    ranks = [x.division for x in changes]
+
     return render_template('improvement/improvement.html', title='Improvement',
-        changes=changes)
+        dates=dates, ranks=ranks)

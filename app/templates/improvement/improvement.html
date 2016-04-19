@@ -3,16 +3,16 @@
 {% block title %} Improvement {% endblock %}
 
 {% block content %}
-<canvas id="chart" width="600" height="400"></canvas>
+<canvas id="chart" width="1000" height="500"></canvas>
 
 <script>
     var chart_data = {
         labels: [
                     {% for date in dates %}
-                        {{date}},
+                        "{{date}}",
                     {% endfor %}
                 ],
-        datasets: [
+        datasets: [{
             fillColor: "rgba(151, 187, 205, 1)",
             strokeColor: "rgba(151,187,205,1)",
             pointColor: "rgba(151,187,205,1)",
@@ -23,9 +23,9 @@
             data : [
                 {% for rank in ranks %}
                     {{rank}},
-                {% end for %}
+                {% endfor %}
             ]
-        ]
+        }]
     }
 
     Chart.defaults.global.animationSteps = 50;
@@ -40,8 +40,8 @@
 
     var rank_chart = document.getElementById("chart").getContext("2d");
 
-    steps = 10
-    max = 10
+    steps = 5
+    max = 25
 
     var LineChartDemo = new Chart(rank_chart).Line(chart_data, {
         scaleOverride: true,
