@@ -30,7 +30,7 @@
 {% endassets %}
 <!--<h1>Rek dis guy</h1>-->
 <div class="home">
-    <div style="z-index: -1">
+    <div id="homeimgwrap" style="z-index: -1">
         <img id="homeimg" src={{ url_for('static', filename='background.jpeg') }}></img>
     </div>
     <div class="search-wrap">
@@ -38,7 +38,7 @@
             <input class="search-summoner" type="text" name="summonerName" />
             <i class="fa fa-search"></i>
         </form>
-        <ul>
+        <ul id="search_history">
              <li><a id="search1"></a></li>
              <li><a id="search2"></a></li>
              <li><a id="search3"></a></li>
