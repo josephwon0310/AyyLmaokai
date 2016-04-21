@@ -1,25 +1,28 @@
-from flask import render_template, Blueprint, flash, redirect
-from flask import request, make_response
-from flask import current_app
-from app import forms
-from app import db,models
+from app import db, forms, models
+from app.mod_riot import functions as f
+from flask import Blueprint, current_app, flash, make_response, redirect
+from flask import render_template, request
 import requests
-
 
 signup = Blueprint('signup', __name__)
 
 @signup.route('/signup', methods=['GET', 'POST'])
 def sign_up():
     form = forms.SignUpForm()
+
     if request.method == 'POST':
         if (form.password.data == form.confirm.data):
-            #put a random division here because too lazy to
-            #actualy get real division
+            RIOT_API_KEY = current_app.config.get('RIOT_API_KEY')
+            sum_id = f.get_summoner_ID_from_name('KarmicDemon', RIOT_API_KEY)
+            hello = f.get_numbered_rank_from_sum_ID(sum_id, RIOT_API_KEY)
+
             u = models.User(league_name = form.summoner_name.data,
                             password = form.password.data,
                             email = form.email.data,
-                            rank = 6)
+                            rank = hello)
+
             db.session.add(u)
             db.session.commit()
         return redirect('/login')
+
     return render_template('signup/signup.html',  title='Sign Up', form=form)
