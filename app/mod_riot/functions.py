@@ -12,15 +12,12 @@ DATADRAGON = 'http://ddragon.leagueoflegends.com'
 GAME_URL = 'https://na.api.pvp.net/api/lol/na/v1.3/game/by-summoner'
 LEAGUE_URL = 'https://na.api.pvp.net/api/lol/na/v2.5/league'
 MASTERY = 'https://na.api.pvp.net/championmastery/location/NA1/player'
-<<<<<<< 9c57a087d106b06575696f65afcb6b50d6e2a355
 MATCH_URL = 'https://na.api.pvp.net/api/lol/na/v2.2/match'
 
 CHAMPIONGG = 'http://api.champion.gg/stats'
-=======
 MATCH_HISTORY_URL = 'https://na.api.pvp.net/api/lol/na/v2.2/matchlist/by-summoner'
 STATS_URL = 'https://na.api.pvp.net/api/lol/na/v1.3/stats/by-summoner'
 SUMMONER_URL = 'https://na.api.pvp.net/api/lol/na/v1.4/summoner'
->>>>>>> Started on discuss
 
 #returns the list of aggregated champ stat
 def get_champion_data(champion, API_KEY):
