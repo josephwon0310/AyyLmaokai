@@ -124,7 +124,6 @@ def dashboard():
         
     #====================================
 
-    
     #what is going on
 
     aggregatedStat = get_aggregated_ranked_stats(summoner.id, 'SEASON2016', RIOT_API_KEY)

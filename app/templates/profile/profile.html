@@ -62,8 +62,8 @@
                         {% for data in dataset %}
                             <p>?</p>
                             <script> 
-                                var dataset = '{{ data[0] | tojson }}';
-                                var urdataset = '{{ data[1] | tojson }}';
+                                var dataset = {{data[0] | tojson}};
+                                var urdataset = {{data[1] | tojson}};
                             </script>
                             <div class="pure-u-1-3">
                                 <canvas id="performanceRadar"></canvas>
