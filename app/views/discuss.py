@@ -13,6 +13,9 @@ def discuss_route():
     CHAMP_GG_API_KEY = current_app.config.get('CHAMPIONGG_API_KEY')
     data = get_champ_build(champ.replace(' ', ''), CHAMP_GG_API_KEY)
 
+    champ.name = champ
+    champ.image
+
     print "This is data: "
     print data
 
