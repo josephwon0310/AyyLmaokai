@@ -30,6 +30,7 @@ from .views.login import login
 from .views.profile import profile
 from .views.signup import signup
 from .views.trending import trending
+from .views.match_details import match_details
 
 app.register_blueprint(ban)
 app.register_blueprint(challenger)
@@ -41,3 +42,4 @@ app.register_blueprint(login)
 app.register_blueprint(profile)
 app.register_blueprint(signup)
 app.register_blueprint(trending)
+app.register_blueprint(match_details)

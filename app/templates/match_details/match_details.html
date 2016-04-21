@@ -1,0 +1,35 @@
+<div>
+	<p>Hello</p>
+	<script src="jquery-2.1.4.min.js"> </script>
+	<script src="Chart.js"></script>
+	<body>
+		<canvas id="mycanvas" width="256" height="256">
+		<script>
+			var gbt = {{totalGoldBlueTeam}};
+			var grt = {{totalGoldRedTeam}};
+			var bp = gbt/(gbt+grt) * 360;
+			var rp = 360 - bp;
+			$(document).ready(function() {
+				var ctx = $("#mycanvas").get(0).getContext("2d");
+				
+				var data = [
+				{
+						value: 200,
+						color: "blue",
+						highlight: "lightskyblue",
+						label: "Blue Team Gold Earned"
+				},
+				{
+						value: 160,
+						color: "red",
+						highlight: "red",
+						label: "Red Team Gold Earned"
+				}
+				];
+			   var myNewChart = new Chart(ctx).Pie(data);
+			});
+			
+		</script>
+	</body>
+</div>
+

@@ -58,7 +58,7 @@ def dashboard():
     wardsBought = 0
     games = get_game_stat(summoner.id, RIOT_API_KEY)
     games = games['games']
-    rawStats = []
+    gameIdList = []
     winrate = 0
     for game in games:
         stats = game['stats']
@@ -66,6 +66,11 @@ def dashboard():
             winrate += 1
         if 'visionWardsBought' in stats.keys():
             wardsBought = wardsBought + stats['visionWardsBought']
+
+    for game in games:
+        gameIdList.append(game['gameId'])
+    for gameId in gameIdList:
+        print gameId
     
     print winrate
     #winrate of 10 recent games
@@ -89,11 +94,13 @@ def dashboard():
                                                      , teams=teams
                                                      , masteryList=masteryList
                                                      , wardsBought = wardsBought
-                                                     , winrate = winrate)
+                                                     , winrate = winrate
+                                                     , gameList = gameIdList)
 
     return render_template('profile/profile.html', summoner=summoner
                                                  , rankedStat=rankedStat
                                                  , teams=404
                                                  , masteryList=masteryList
                                                  , wardsBought = wardsBought
-                                                 , winrate = winrate)
+                                                 , winrate = winrate
+                                                 , gameList = gameIdList)

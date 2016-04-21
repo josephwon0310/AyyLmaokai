@@ -14,6 +14,7 @@ GAME_URL = 'https://na.api.pvp.net/api/lol/na/v1.3/game/by-summoner'
 MATCH_HISTORY_URL = 'https://na.api.pvp.net/api/lol/na/v2.2/matchlist/by-summoner'
 CURRENT_MATCH = 'https://na.api.pvp.net/observer-mode/rest/consumer/getSpectatorGameInfo/NA1'
 MASTERY = 'https://na.api.pvp.net/championmastery/location/NA1/player'
+MATCH_URL = 'https://na.api.pvp.net/api/lol/na/v2.2/match'
 
 CHAMPIONGG = 'http://api.champion.gg/stats'
 
@@ -81,6 +82,17 @@ def get_match_history(sum_ID, season, API_KEY):
 
         return matches
 
+    elif r.status_code == 404:
+        return 404
+
+def get_match(API_KEY, match_ID):
+    url = '{}/{}?api_key={}'.format(MATCH_URL, match_ID, API_KEY)
+    print url
+    print '\n\n\n'
+    r = requests.get(url)
+    if r.status_code == 200:
+        data = r.json()
+        return data
     elif r.status_code == 404:
         return 404
 
