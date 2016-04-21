@@ -2,12 +2,14 @@ from app import db
 from app.mod_riot import functions as f
 from app.models import Snapshot
 from flask import Blueprint, current_app, g, render_template
+from flask.ext.login import login_required
 
 import datetime
 
 improvement = Blueprint('improvement', __name__)
 
 @improvement.route('/improvement')
+@login_required
 def show_improve():
     RIOT_API_KEY = current_app.config.get('RIOT_API_KEY')
     sum_id = f.get_summoner_ID_from_name('KarmicDemon', RIOT_API_KEY)
