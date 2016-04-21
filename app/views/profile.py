@@ -107,7 +107,7 @@ def dashboard():
     wardsBought = 0
     games = get_game_stat(summoner.id, RIOT_API_KEY)
     games = games['games']
-    rawStats = []
+    gameIdList = []
     winrate = 0
     for game in games:
         stats = game['stats']
@@ -115,6 +115,11 @@ def dashboard():
             winrate += 1
         if 'visionWardsBought' in stats.keys():
             wardsBought = wardsBought + stats['visionWardsBought']
+
+    for game in games:
+        gameIdList.append(game['gameId'])
+    for gameId in gameIdList:
+        print gameId
     
     #winrate of 10 recent games
     
@@ -137,8 +142,9 @@ def dashboard():
                                                      , rankedStat=rankedStat
                                                      , teams=teams
                                                      , masteryList=masteryList
-                                                     , wardsBought=wardsBought
-                                                     , winrate=winrate
+                                                     , wardsBought = wardsBought
+                                                     , winrate = winrate
+                                                     , gameList = gameIdList
                                                      , top3champstat=top3champstat
                                                      , dataset=wow)
 
@@ -146,7 +152,8 @@ def dashboard():
                                                  , rankedStat=rankedStat
                                                  , teams=404
                                                  , masteryList=masteryList
-                                                 , wardsBought=wardsBought
-                                                 , winrate=winrate
+                                                 , wardsBought = wardsBought
+                                                 , winrate = winrate
+                                                 , gameList = gameIdList
                                                  , top3champstat=top3champstat
                                                  , dataset=wow)

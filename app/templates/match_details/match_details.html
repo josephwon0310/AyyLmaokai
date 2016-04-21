@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block title %} Improvement {% endblock %}
+
+{% block content %}
+<div>
+	<script type=""></script>
+	<body>
+		<canvas id="mycanvas" width="256" height="256">
+		<script>
+			var gbt = {{totalGoldBlueTeam}};
+			var grt = {{totalGoldRedTeam}};
+			$(document).ready(function() {
+				var ctx = $("#mycanvas").get(0).getContext("2d");
+				
+				var data = [
+				{
+						value: gbt,
+						color: "blue",
+						highlight: "lightskyblue",
+						label: "Blue Team Gold Earned"
+				},
+				{
+						value: grt,
+						color: "red",
+						highlight: "orange",
+						label: "Red Team Gold Earned"
+				}
+				];
+			   var myNewChart = new Chart(ctx).Pie(data);
+			});
+			
+		</script>
+	</body>
+</div>
+{% endblock %}

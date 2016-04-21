@@ -11,6 +11,7 @@ body {
   list-style-type: none;
   overflow: hidden;
   background-color: #31373F;
+  height: 7vh;
 }
 
 /* line 18 */
@@ -115,6 +116,17 @@ body {
   width: 750px;
   height: 250px;
 }
+.gameInfo {
+  position: relative;
+  border-radius: 10px;
+  left: 0px;
+  right: 0;
+  margin: 0px auto;
+  text-align: center;
+  background-color: #D5D5D6;
+  width: 750px;
+  height: 50px;
+}
 
 /* line 102 */
 .performance-wrapper {
@@ -166,15 +178,14 @@ body {
   background-color: #D5D5D6;
 }
 
-#username{
-}
-
 #dropdown_menu {
   display: none;
   position: absolute;
   background-color: #31373F;
   list-style-type: none;
-  padding:0; 
+  margin-top: -1vh;
+  padding:0;
+  z-index: 100; 
 }
 
 #dropdown_menu li {
@@ -189,6 +200,43 @@ body {
   display:inherit;
 }
 
+.home{
+  height:93vh;
+}
+
+#homeimgwrap{
+  height: 100%;
+  overflow: hidden;
+}
+
 #homeimg{
-  max-width: 100%;
+  width: 100%;
+}
+
+#signup{
+  color:black;
+}
+
+#search_history{
+  position: relative;
+  top: 160px;
+  text-align: center;
+}
+
+#search_history li{
+  display: inline;
+}
+
+.pure-u-1-3{
+  position: absolute;
+  max-height: 93vh;
+  overflow:auto;
+  max-width: 30%
+}
+
+.pure-u-2-3{
+  position: absolute;
+  left: 32%;
+  max-height: 93vh;
+  padding-top: 10vh;
 }

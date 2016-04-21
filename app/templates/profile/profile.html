@@ -30,9 +30,9 @@
                         <canvas id="recentWinrate"></canvas>
                     </div>
             </div>    
-            
         </div>
 
+        <!-- put your shit here and have ti put as class pure-u-1-3 -->
         <div class="content-wrap">
             <div class="pure-g">
                 <div class="pure-u-2-3">
@@ -56,7 +56,14 @@
                                 </div>
                             {% endfor %}
                         </div>
+
                     </div>
+                            {% for gameId in gameList %}
+                                <div class="gameInfo">
+                                    <a href="/match_details?id={{ gameId }}">Game id: {{gameId}}</a> 
+                                 </div>
+                            {% endfor %}
+
                     
                     <div class="performance-wrapper pure-g">
                         {% for data in dataset %}
@@ -90,6 +97,7 @@
                 </div>
             </div>
         </div>
+        
 
     </div>
     <script type="text/javascript" src={{ url_for('static', filename="js/graphs.js") }}></script>

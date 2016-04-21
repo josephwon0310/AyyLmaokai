@@ -21,4 +21,4 @@ if __name__ == "__main__":
 	bot = helloworld("leaguetutorbot", "bronze5bois")
 	#bot = helloworld("joseph0310", "tmdwo0831") j0shl 33984703
 	bot.connect()
-	bot.verifySummoner("Silverhand Champ")
+	bot.verifySummoner("j0shl")

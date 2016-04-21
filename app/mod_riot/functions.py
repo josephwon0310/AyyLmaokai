@@ -6,16 +6,18 @@ import json
 
 from mapper import *
 
-DATADRAGON = 'http://ddragon.leagueoflegends.com'
-SUMMONER_URL = 'https://na.api.pvp.net/api/lol/na/v1.4/summoner'
-STATS_URL = 'https://na.api.pvp.net/api/lol/na/v1.3/stats/by-summoner'
-LEAGUE_URL = 'https://na.api.pvp.net/api/lol/na/v2.5/league'
-GAME_URL = 'https://na.api.pvp.net/api/lol/na/v1.3/game/by-summoner'
-MATCH_HISTORY_URL = 'https://na.api.pvp.net/api/lol/na/v2.2/matchlist/by-summoner'
+CHAMPIONGG = 'http://api.champion.gg/stats'
 CURRENT_MATCH = 'https://na.api.pvp.net/observer-mode/rest/consumer/getSpectatorGameInfo/NA1'
+DATADRAGON = 'http://ddragon.leagueoflegends.com'
+GAME_URL = 'https://na.api.pvp.net/api/lol/na/v1.3/game/by-summoner'
+LEAGUE_URL = 'https://na.api.pvp.net/api/lol/na/v2.5/league'
 MASTERY = 'https://na.api.pvp.net/championmastery/location/NA1/player'
+MATCH_URL = 'https://na.api.pvp.net/api/lol/na/v2.2/match'
 
 CHAMPIONGG = 'http://api.champion.gg/stats'
+MATCH_HISTORY_URL = 'https://na.api.pvp.net/api/lol/na/v2.2/matchlist/by-summoner'
+STATS_URL = 'https://na.api.pvp.net/api/lol/na/v1.3/stats/by-summoner'
+SUMMONER_URL = 'https://na.api.pvp.net/api/lol/na/v1.4/summoner'
 
 #returns the list of aggregated champ stat
 def get_champion_data(champion, API_KEY):
@@ -24,7 +26,6 @@ def get_champion_data(champion, API_KEY):
 
     if r.status_code == 200:
         return r.json()
-
     elif r.status_code == 404:
         return 404
 
@@ -37,7 +38,6 @@ def get_champ_mastery(sum_ID, API_KEY):
         data = r.json() #this is a list of top 3 champs
         for champion in data:
             champion['championId'] = map_champions(champion['championId'])
-
         return data
     elif r.status_code == 404:
         return 404
@@ -84,6 +84,17 @@ def get_match_history(sum_ID, season, API_KEY):
     elif r.status_code == 404:
         return 404
 
+def get_match(API_KEY, match_ID):
+    url = '{}/{}?api_key={}'.format(MATCH_URL, match_ID, API_KEY)
+    print url
+    print '\n\n\n'
+    r = requests.get(url)
+    if r.status_code == 200:
+        data = r.json()
+        return data
+    elif r.status_code == 404:
+        return 404
+
 #returns the json formatted summary of the mastery pages.
 def get_masteries(sum_ID, API_KEY):
     url = '{}/{}/masteries?api_key{}'.format(SUMMONER_URL, sum_ID, API_KEY)
@@ -93,7 +104,6 @@ def get_masteries(sum_ID, API_KEY):
 
 #returns the list of json objects
 def get_ranked_stats(sum_ID, season, API_KEY):
-
     url = '{}/{}/ranked?season={}&api_key={}'.format(STATS_URL, sum_ID, season ,API_KEY)
     r = requests.get(url)
 
@@ -111,7 +121,6 @@ def get_ranked_stats(sum_ID, season, API_KEY):
         return 404
 
 def get_aggregated_ranked_stats(sum_ID, season, API_KEY):
-
     url = '{}/{}/ranked?season={}&api_key={}'.format(STATS_URL, sum_ID, season ,API_KEY)
     r = requests.get(url)
 
@@ -127,7 +136,6 @@ def get_aggregated_ranked_stats(sum_ID, season, API_KEY):
 
 #Returns the list of json info of the current game that the user is in
 def get_current_match(sum_ID, API_KEY):
-
     url = '{}/{}?api_key={}'.format(CURRENT_MATCH, sum_ID, API_KEY)
     r = requests.get(url)
 
@@ -150,7 +158,6 @@ def get_current_match(sum_ID, API_KEY):
 
 #returns the json object of the challenger tier
 def get_challenger_list(API_KEY):
-
     url = '{}/challenger?type=RANKED_SOLO_5x5&api_key={}'.format(LEAGUE_URL, API_KEY)
     r = requests.get(url)
 
@@ -162,7 +169,6 @@ def get_challenger_list(API_KEY):
 #returns the json object of the recent match history and stats
 #Grab the data with json['games']
 def get_game_stat(sum_ID, API_KEY):
-
     url ='{}/{}/recent?api_key={}'.format(GAME_URL, sum_ID, API_KEY)
     r = requests.get(url)
 
@@ -213,7 +219,7 @@ def get_mostbanned_champs(API_KEY, limit):
 def get_general_champ_data(API_KEY, champName):
     url = "http://api.champion.gg/champion/{}/general?api_key={}".format(champName, API_KEY)
     r = requests.get(url)
-    
+
     if r.status_code == 200:
         return r.json()
 
@@ -227,10 +233,22 @@ def get_champ_list(API_KEY):
         return 404
 
 def get_champ(API_KEY):
-    url = "http://api./champion/{}?api_key={}".format(champion,API_KEY)
+    url = "http://api.champion/{}?api_key={}".format(champion,API_KEY)
     r = requests.get(url)
     if r.status_code == 200:
         data=r.json()
+        return data
+    elif r.status_code == 404:
+        return 404
+
+def get_champ_build(champion, API_KEY):
+    url = "http://api.champion.gg/champion/{}/items".format(champion) + \
+        "/finished/mostPopular?api_key={}".format(API_KEY)
+    print url
+    r = requests.get(url)
+    if r.status_code == 200:
+        data = r.json()
+        data = data[0]['items']
         return data
     elif r.status_code == 404:
         return 404
