@@ -143,34 +143,18 @@ def dashboard():
                                                      , rankedStat=rankedStat
                                                      , teams=teams
                                                      , masteryList=masteryList
-<<<<<<< HEAD
                                                      , wardsBought = wardsBought
                                                      , winrate = winrate
-                                                     , gameList = gameIdList)
-||||||| merged common ancestors
-                                                     , wardsBought = wardsBought
-                                                     , winrate = winrate)
-=======
-                                                     , wardsBought=wardsBought
-                                                     , winrate=winrate
+                                                     , gameList = gameIdList
                                                      , top3champstat=top3champstat
                                                      , dataset=wow)
->>>>>>> refs/remotes/origin/master
 
     return render_template('profile/profile.html', summoner=summoner
                                                  , rankedStat=rankedStat
                                                  , teams=404
                                                  , masteryList=masteryList
-<<<<<<< HEAD
                                                  , wardsBought = wardsBought
                                                  , winrate = winrate
-                                                 , gameList = gameIdList)
-||||||| merged common ancestors
-                                                 , wardsBought = wardsBought
-                                                 , winrate = winrate)
-=======
-                                                 , wardsBought=wardsBought
-                                                 , winrate=winrate
+                                                 , gameList = gameIdList
                                                  , top3champstat=top3champstat
                                                  , dataset=wow)
->>>>>>> refs/remotes/origin/master
