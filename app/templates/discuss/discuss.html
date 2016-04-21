@@ -1,0 +1,13 @@
+{% block content %}
+<div>
+    <div>
+        <img src={{ url_for('static', filename="champ.image") }} />
+        <br><br>
+        {{ for item in champ.image }}
+            <div>
+                <img src={{ url_for('static', filename="item.image")}} />
+            <div>
+        {{ endfor }}
+    </div>
+<div>
+{% endblock %}

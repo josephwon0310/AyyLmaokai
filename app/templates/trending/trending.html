@@ -14,7 +14,9 @@
             <!-- this is the box everything is in, make this inline -->
             <div class="trendingBox" style="border-bottom:solid">
                 <!-- box for champion img -->
-                <img src={{ url_for('static', filename=champ.image) }}></img>
+                <a href='/discuss?champ={{ champ.name }}'>
+                    <img src={{ url_for('static', filename=champ.image) }} />
+                </a>
 
                 <!--box for champion name -->
                 <div style="display:inline-block">

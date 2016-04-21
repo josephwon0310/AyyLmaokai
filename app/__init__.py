@@ -23,11 +23,13 @@ login_manager.login_view = '/login'
 from .views.ban import ban
 from .views.challenger import challenger
 from .views.current_game import current_game
+from .views.discuss import discuss
 from .views.dynamic_queue import dynamic_queue
 from .views.feedback import feedback
 from .views.home import home
 from .views.improvement import improvement
 from .views.login import login
+from .views.match_details import match_details
 from .views.profile import profile
 from .views.signup import signup
 from .views.trending import trending
@@ -35,11 +37,13 @@ from .views.trending import trending
 app.register_blueprint(ban)
 app.register_blueprint(challenger)
 app.register_blueprint(current_game)
+app.register_blueprint(discuss)
 app.register_blueprint(dynamic_queue)
 app.register_blueprint(feedback)
 app.register_blueprint(home)
 app.register_blueprint(improvement)
 app.register_blueprint(login)
+app.register_blueprint(match_details)
 app.register_blueprint(profile)
 app.register_blueprint(signup)
 app.register_blueprint(trending)
