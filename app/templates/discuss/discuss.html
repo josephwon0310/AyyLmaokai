@@ -5,6 +5,7 @@
     <div>
         <img src={{ url_for('static', filename=champ['image'])}} />
         <br><br>
+        <h1>Most Popular build</h1>
         {% for item in champ['items'] %}
             <div>
                 <img src={{ url_for('static',

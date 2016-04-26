@@ -26,7 +26,7 @@ def discuss_route():
     champion['image'] = "images/champion/" + champ.replace(" ", "") + ".png"
     champion['items'] = [get_item(x, RIOT_API_KEY) for x in data]
 
-    comments = Comment.query.filter(Comment.champion == champion['name'])all()
+    comments = Comment.query.filter(Comment.champion == champion['name']).all()
 
     #do if form validate on submit
     if request.method == 'POST':
