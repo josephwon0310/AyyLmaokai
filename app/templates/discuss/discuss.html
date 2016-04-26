@@ -1,13 +1,32 @@
+{% extends "layout.html" %}
+
 {% block content %}
 <div>
     <div>
-        <img src={{ url_for('static', filename="champ.image") }} />
+        <img src={{ url_for('static', filename=champ['image'])}} />
         <br><br>
-        {{ for item in champ.image }}
+        <h1>Most Popular build</h1>
+        {% for item in champ['items'] %}
             <div>
-                <img src={{ url_for('static', filename="item.image")}} />
+                <img src={{ url_for('static',
+                    filename="images/item/" + item['id']|string + ".png")}} />
             <div>
-        {{ endfor }}
+        {% endfor %}
     </div>
+
+    <h1>Leave Comment</h1>
+
+    <form action="" method="post">
+        <p>{{ form.comment(size=400) }}</p>
+        <p><input type="submit" value="Comment"></p>
+    </form>
+
+    <h1>Comments</h1>
+    {% for comment in comments %}
+        <div>
+            <p>Person: {{ comment.user }}</p>
+            <p>Comment: {{ comment.comment }}</p>
+        </div>
+    {% endfor %}
 <div>
 {% endblock %}
