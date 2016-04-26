@@ -16,9 +16,7 @@
 		}
 		#back{
 			background-color: gray;
-			border: none;
-			height: 14%;
-			width: 14%;
+			cursor: pointer;
 		}
 		
 	</style>
@@ -32,7 +30,7 @@
 		        		$("#champions").load("../suggested");
 		    		});
 		    		var ban = $("#right li");
-		       		$("img").click(function(){
+		       		$("img").not("#back").click(function(){
 				    	$img = $(this).clone();
 				    	if(Number(sessionStorage.count)>5 && Number(sessionStorage.count)<16){
 				    		if(Number(sessionStorage.count)%2===0){
@@ -53,10 +51,10 @@
 			
 			</script>
      		<ul>
-        		<li><button type="button" id="back">Back</button></li>
+        		<li><img id="back" src='/static/images/back.png'><a href="#"></a></li>
         		{% for champs in champList %}
 					{% if champs['key'].lower() == query or query == "" %}
-						<li><img src='/static/images/champion/{{champs['key']}}.png'></li>
+						<li><img src='/static/images/champion/{{champs['key']}}.png'></li>	
 					{% endif %}
 	        	{% endfor %}
 			</ul>

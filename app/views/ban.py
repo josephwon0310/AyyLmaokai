@@ -27,7 +27,7 @@ def bans():
 @ban.route('/champList')
 def test():
 
-	API_KEY=current_app.config.get('RIOT_API_KEY')
+	API_KEY=current_app.config.get('CHAMPIONGG_API_KEY')
 	query = request.args.get('search')
 	champList=f.get_champ_list(API_KEY)
 	return render_template('ban/champList.html',champList=champList,query=query)
