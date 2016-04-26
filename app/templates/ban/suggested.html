@@ -41,10 +41,12 @@
 				    	if(Number(sessionStorage.count)>5 && Number(sessionStorage.count)<16){
 				    		if(Number(sessionStorage.count)%2===0){
 				    			ban.eq((Number(sessionStorage.count)+6)/2).show().html($img);
+				    			ban.eq((Number(sessionStorage.count)+6)/2).attr('value',$img.value);
 				    			sessionStorage.count=Number(sessionStorage.count)+1;
 				    		}
 				    		else{
 				    			ban.eq((Number(sessionStorage.count)+15)/2).show().html($img);
+				    			ban.eq((Number(sessionStorage.count)+15)/2).attr('value',$img.value);
 				    			sessionStorage.count=Number(sessionStorage.count)+1;
 				    		}
 				    	}
@@ -60,7 +62,7 @@
             <p>Highest Winrate Champions</p>
             <ul>
                 {% for champs in highWin %}
-               	        <img src='/static/images/champion/{{ champs['key'] }}.png'>
+               	        <img value='{{champs['key']}}' src='/static/images/champion/{{ champs['key'] }}.png'>
                 {% endfor %}
             </ul>
                         
@@ -68,14 +70,14 @@
 		    <p>Most Played Champions</p>
 		    <ul>
 		    	{% for champs in mostPlayed %}
-					<img src='/static/images/champion/{{ champs['key'] }}.png'>
+					<img value='{{champs['key']}}' src='/static/images/champion/{{ champs['key'] }}.png'>
 		    	{% endfor %}
 		    </ul>
 
 		    <p>Most Banned Champions</p>
 		    <ul>
 		    	{% for champs in mostBanned %}
-					<img src='/static/images/champion/{{champs['key']}}.png'>
+					<img value='{{champs['key']}}' src='/static/images/champion/{{champs['key']}}.png'>
 		    	{% endfor %}
 		    </ul>
 		

@@ -35,10 +35,12 @@
 				    	if(Number(sessionStorage.count)>5 && Number(sessionStorage.count)<16){
 				    		if(Number(sessionStorage.count)%2===0){
 				    			ban.eq((Number(sessionStorage.count)+6)/2).show().html($img);
+				    			ban.eq((Number(sessionStorage.count)+6)/2).attr('value',$img.value);
 				    			sessionStorage.count=Number(sessionStorage.count)+1;
 				    		}
 				    		else{
 				    			ban.eq((Number(sessionStorage.count)+15)/2).show().html($img);
+				    			ban.eq((Number(sessionStorage.count)+15)/2).attr('value',$img.value);
 				    			sessionStorage.count=Number(sessionStorage.count)+1;
 				    		}
 				    	}
@@ -54,7 +56,7 @@
         		<li><img id="back" src='/static/images/back.png'><a href="#"></a></li>
         		{% for champs in champList %}
 					{% if champs['key'].lower() == query or query == "" %}
-						<li><img src='/static/images/champion/{{champs['key']}}.png'></li>	
+						<li><img value='{{champs['key']}}' src='/static/images/champion/{{champs['key']}}.png'></li>	
 					{% endif %}
 	        	{% endfor %}
 			</ul>
