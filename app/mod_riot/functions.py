@@ -11,6 +11,7 @@ CURRENT_MATCH = 'https://na.api.pvp.net/observer-mode/rest/consumer/getSpectator
 DATADRAGON = 'http://ddragon.leagueoflegends.com'
 GAME_URL = 'https://na.api.pvp.net/api/lol/na/v1.3/game/by-summoner'
 LEAGUE_URL = 'https://na.api.pvp.net/api/lol/na/v2.5/league'
+ITEM_URL = 'https://na.api.pvp.net/api/lol/static-data/na/v1.2/item'
 MASTERY = 'https://na.api.pvp.net/championmastery/location/NA1/player'
 MATCH_URL = 'https://na.api.pvp.net/api/lol/na/v2.2/match'
 MATCH_HISTORY_URL = 'https://na.api.pvp.net/api/lol/na/v2.2/matchlist/by-summoner'
@@ -62,6 +63,19 @@ def get_sum_DTO(sum_name, API_KEY):
     elif r.status_code == 403:
         return 403
 
+    elif r.status_code == 404: #summoner name not found
+        return 404
+
+def get_item(item, API_KEY):
+    url = '{}/{}?api_key={}'.format(ITEM_URL, item, API_KEY)
+    r = requests.get(url)
+
+    print url
+
+    if r.status_code == 200:
+        return r.json()
+    elif r.status_code == 403:
+        return 403
     elif r.status_code == 404: #summoner name not found
         return 404
 
@@ -252,7 +266,6 @@ def get_champ(API_KEY):
 def get_champ_build(champion, API_KEY):
     url = "http://api.champion.gg/champion/{}/items".format(champion) + \
         "/finished/mostPopular?api_key={}".format(API_KEY)
-    print url
     r = requests.get(url)
     if r.status_code == 200:
         data = r.json()

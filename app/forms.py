@@ -1,7 +1,10 @@
 from flask.ext.wtf import Form
 from wtforms import BooleanField, PasswordField, StringField
-from wtforms import SelectMultipleField, TextField, validators
+from wtforms import TextAreaField, TextField, validators
 from wtforms.validators import DataRequired, EqualTo, Required
+
+class CommentForm(Form):
+    comment = TextAreaField('comment', validators=[DataRequired()])
 
 class DynamicQueueOptions(Form):
     lower_than_me = BooleanField('less_than_me', default=False)

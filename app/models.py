@@ -43,3 +43,13 @@ class Snapshot(db.Model):
     user_id = db.Column(db.Integer)
     snap_time = db.Column(db.Date)
     division = db.Column(db.Integer)
+
+class Comment(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    user = db.Column(db.String(256))
+    champion = db.Column(db.String(256))
+    comment = db.Column(db.String(10000))
+
+    def __repr__(self):
+        return '{Comment #%d: Comment: %s, Champion: %s}\n' % \
+        (self.id, self.comment, self.champion)
