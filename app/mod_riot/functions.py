@@ -279,5 +279,5 @@ def get_numbered_rank_from_sum_ID(summoner_ID, API_KEY):
 
 def get_summoner_ID_from_name(summoner_name, API_KEY):
     sum_DTO = get_sum_DTO(summoner_name, API_KEY)
-    sum_id = sum_DTO[summoner_name.lower()]['id']
+    sum_id = sum_DTO[summoner_name.lower().replace(" ", "")]['id']
     return sum_id
