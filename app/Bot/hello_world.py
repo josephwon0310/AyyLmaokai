@@ -18,7 +18,7 @@ class helloworld(zxlolbot.zxLoLBoT):
 		self.remove_friend_by_name(sender)
 	
 if __name__ == "__main__":
-	bot = helloworld("leaguetutorbot", "bronze5bois")
-	#bot = helloworld("joseph0310", "tmdwo0831") j0shl 33984703
-	bot.connect()
-	bot.verifySummoner("j0shl")
+ 	bot = helloworld("leaguetutorbot", "bronze5bois")
+ 	#bot = helloworld("joseph0310", "tmdwo0831") j0shl 33984703
+ 	bot.connect()
+ 	bot.verifySummoner("Exultar")

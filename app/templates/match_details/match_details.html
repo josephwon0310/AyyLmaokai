@@ -6,7 +6,14 @@
 <div>
 	<script type=""></script>
 	<body>
-		<canvas id="mycanvas" width="256" height="256">
+		<div>
+			<p>Gold Distribution</p>
+			<canvas id="mycanvas" width="300" height="300">
+		</div>
+		<div>
+			<p>Damage Distribution</p>
+			<canvas id="mycanvas1" width="300" height="300">
+		</div>
 		<script>
 			var gbt = {{totalGoldBlueTeam}};
 			var grt = {{totalGoldRedTeam}};
@@ -27,10 +34,56 @@
 						label: "Red Team Gold Earned"
 				}
 				];
-			   var myNewChart = new Chart(ctx).Pie(data);
+
+				var dbt = {{totalDamageBlueTeam}};
+				var drt = {{totalDamageRedTeam}};
+
+				var ctx2 = $("#mycanvas1").get(0).getContext("2d");
+				
+				var data2 = [
+				{
+						value: dbt,
+						color: "blue",
+						highlight: "lightskyblue",
+						label: "Blue Team Damage Dealt"
+				},
+				{
+						value: drt,
+						color: "red",
+						highlight: "orange",
+						label: "Red Team Damage Dealt"
+				}
+				];
+
+			   	var myNewChart = new Chart(ctx).Pie(data);
+			    var myNewChart2 = new Chart(ctx2).Pie(data2);	
 			});
-			
 		</script>
+		<!--
+		<script>
+			var dbt = {{totalDamageBlueTeam}};
+			var drt = {{totalDamageRedTeam}};
+			$(document).ready(function() {
+				var ctx2 = $("#mycanvas1").get(0).getContext("2d");
+				
+				var data2 = [
+				{
+						value: 100,
+						color: "blue",
+						highlight: "lightskyblue",
+						label: "Blue Team Damage Dealt"
+				},
+				{
+						value: 260,
+						color: "red",
+						highlight: "orange",
+						label: "Red Team Damage Dealt"
+				}
+				];
+			   var myNewChart2 = new Chart(ctx2).Pie(data2);
+			});
+		</script>
+		-->
 	</body>
 </div>
 {% endblock %}

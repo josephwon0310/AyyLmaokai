@@ -11,11 +11,14 @@ import inspect
 import hashlib
 import logging
 import threading
+#from six.moves import urllib
 import urllib.error
 import urllib.parse
 import urllib.request
 import string
 import random
+
+logging.basicConfig()
 
 try:
     import sleekxmpp
@@ -30,9 +33,9 @@ except ImportError:
 
 logging.getLogger('sleekxmpp').setLevel(logging.WARNING) #Gets rid of sleekxmpp logging unless important
 
+
 def botcommand(*args, **kwargs):
     """Decorator for bot command function"""
-
     def decorate(function, hidden=False, admin=False, name=None, need_arg=False):
         function._zxLoLBoT_command = True
         function._zxLoLBoT_command_name = name or function.__name__
@@ -101,7 +104,6 @@ class zxLoLBoT():
         self.xmpp.add_event_handler("message", self.on_xmpp_message)
         self.xmpp.add_event_handler("roster_update", self.on_xmpp_roster_update, disposable=True)
         self.xmpp.add_event_handler("groupchat_invite", None) #Ends up goign to on_xmpp_message
-
         #Testing region and registering commands
         if region.upper() not in self.regions:
             self.logger.critical("Invalid region.(only " + ", ".join(self.regions.keys())+" are accepted)")
@@ -545,8 +547,7 @@ class zxLoLBoT():
 
     def remove_friend_by_id(self, summoner_id):
         """Removes someone from your friendlist by their summoner ID"""
-
-        self.xmpp.send_presence(pto="sum"+summoner_id+"@pvp.net", ptype="unsubscribe")
+        self.xmpp.send_presence(pto='sum{}@pvp.net'.format(summoner_id), ptype="unsubscribe")
         if summoner_id in self.friends:
             self.friends.remove(summoner_id)
 
@@ -555,7 +556,7 @@ class zxLoLBoT():
         Requires a riot api key"""
 
         if self.riot_api_key:
-            self.xmpp.send_presence(pto="sum"+self.summoner_name_to_id(summoner_name)+"@pvp.net", ptype="unsubscribe")
+            self.xmpp.send_presence(pto='sum'+self.summoner_name_to_id(summoner_name)+'@pvp.net', ptype="unsubscribe")
     @botcommand
     def help(self, sender, arg):
         """Returns help for commands

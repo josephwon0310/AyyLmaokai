@@ -12,17 +12,27 @@ def board():
     match = get_match(RIOT_API_KEY,searchword)
     totalGoldBlueTeam = 0
     totalGoldRedTeam = 0
+    totalDamageBlueTeam = 0
+    totalDamageRedTeam = 0
+    # print match
     participants = match['participants']
     for participant in participants:
     	if participant['teamId'] == 100:
-    		totalGoldBlueTeam = totalGoldBlueTeam + participant['stats']['goldEarned']
+            totalGoldBlueTeam = totalGoldBlueTeam + participant['stats']['goldEarned']
+            totalDamageBlueTeam = totalDamageBlueTeam + participant['stats']['totalDamageDealt']
     	else :
-    		totalGoldRedTeam = totalGoldRedTeam + participant['stats']['goldEarned']
+            totalGoldRedTeam = totalGoldRedTeam + participant['stats']['goldEarned']
+            totalDamageRedTeam = totalDamageRedTeam + participant['stats']['totalDamageDealt']
     print totalGoldRedTeam
     print '\n\n\n'
     print totalGoldBlueTeam
     print '\n\n\n'	
+    print totalDamageRedTeam
+    print '\n\n\n'
+    print totalDamageBlueTeam
     # the code below is executed if the request method
     # was GET or the credentials were invalid
     return render_template('match_details/match_details.html', totalGoldRedTeam = totalGoldRedTeam
-    														 , totalGoldBlueTeam = totalGoldBlueTeam)
+    														 , totalGoldBlueTeam = totalGoldBlueTeam
+                                                             , totalDamageRedTeam = totalDamageRedTeam
+                                                             , totalDamageBlueTeam = totalDamageBlueTeam)
