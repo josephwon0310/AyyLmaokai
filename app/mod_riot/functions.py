@@ -13,8 +13,6 @@ GAME_URL = 'https://na.api.pvp.net/api/lol/na/v1.3/game/by-summoner'
 LEAGUE_URL = 'https://na.api.pvp.net/api/lol/na/v2.5/league'
 MASTERY = 'https://na.api.pvp.net/championmastery/location/NA1/player'
 MATCH_URL = 'https://na.api.pvp.net/api/lol/na/v2.2/match'
-
-CHAMPIONGG = 'http://api.champion.gg/stats'
 MATCH_HISTORY_URL = 'https://na.api.pvp.net/api/lol/na/v2.2/matchlist/by-summoner'
 STATS_URL = 'https://na.api.pvp.net/api/lol/na/v1.3/stats/by-summoner'
 SUMMONER_URL = 'https://na.api.pvp.net/api/lol/na/v1.4/summoner'
