@@ -17,6 +17,9 @@
 
     <script type="text/javascript">
         $(document).ready(function(){
+            if (!(Number(localStorage.searchCount)>=0)) {
+            localStorage.searchCount=0;
+        }
             if(!"{{g.user.league_name}}"){
                 $("#username").hide();
                 $("#dynamic").hide();

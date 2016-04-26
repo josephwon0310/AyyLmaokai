@@ -16,7 +16,7 @@
             $("#search5").attr("href","/profile?summonerName="+localStorage[Number(localStorage.searchCount)%5]);
             $(".search-summoner").keydown(function (event){
                 if (event.keyCode == 13){
-                    localStorage[localStorage.searchCount]=$(".search-summoner").val();
+                    localStorage[Number(localStorage.searchCount)]=$(".search-summoner").val();
                     localStorage.searchCount=(Number(localStorage.searchCount)+1)%5;
                 }
             });
