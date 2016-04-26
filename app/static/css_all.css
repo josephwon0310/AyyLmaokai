@@ -184,6 +184,7 @@ body {
   background-color: #31373F;
   list-style-type: none;
   margin-top: -1vh;
+  margin-left: -1vh;
   padding:0;
   z-index: 100; 
 }
