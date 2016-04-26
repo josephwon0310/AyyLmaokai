@@ -184,7 +184,6 @@ body {
   background-color: #31373F;
   list-style-type: none;
   margin-top: -1vh;
-  margin-left: -1vh;
   padding:0;
   z-index: 100;
 }
@@ -192,9 +191,13 @@ body {
 #dropdown_menu li {
   display:list-item;
   position: relative;
-  background-color: #31373F;
+  background-color: black;
   text-align: right;
   width: 100%;
+}
+
+#username:hover{
+  background-color: black;
 }
 
 #username:hover > #dropdown_menu{
