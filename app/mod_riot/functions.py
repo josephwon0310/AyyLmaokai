@@ -17,6 +17,16 @@ MATCH_HISTORY_URL = 'https://na.api.pvp.net/api/lol/na/v2.2/matchlist/by-summone
 STATS_URL = 'https://na.api.pvp.net/api/lol/na/v1.3/stats/by-summoner'
 SUMMONER_URL = 'https://na.api.pvp.net/api/lol/na/v1.4/summoner'
 
+#TODO: BYRON USE THIS
+def get_champ_list(API_KEY):
+    url = 'https://na.api.pvp.net/api/lol/na/v1.2/champion?api_key={}'.format(API_KEY)
+    r = requests.get(url)
+    
+    if r.status_code == 200:
+        return r.json()['champions']
+    else:
+        return 404
+    
 #returns the list of aggregated champ stat
 def get_champion_data(champion, API_KEY):
     url = '{}/champs/{}?api_key={}'.format(CHAMPIONGG, champion, API_KEY)
@@ -221,14 +231,14 @@ def get_general_champ_data(API_KEY, champName):
     if r.status_code == 200:
         return r.json()
 
-def get_champ_list(API_KEY):
-    url = "http://api.champion.gg/stats?api_key={}".format(API_KEY)
-    r = requests.get(url)
-    if r.status_code == 200:
-        data=r.json()
-        return data
-    elif r.status_code == 404:
-        return 404
+# def get_champ_list(API_KEY):
+#     url = "http://api.champion.gg/stats?api_key={}".format(API_KEY)
+#     r = requests.get(url)
+#     if r.status_code == 200:
+#         data=r.json()
+#         return data
+#     elif r.status_code == 404:
+#         return 404
 
 def get_champ(API_KEY):
     url = "http://api.champion/{}?api_key={}".format(champion,API_KEY)
