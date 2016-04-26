@@ -5,13 +5,21 @@
     <div>
         <img src={{ url_for('static', filename=champ['image'])}} />
         <br><br>
-        <h1>Most Popular build</h1>
-        {% for item in champ['items'] %}
-            <div>
-                <img src={{ url_for('static',
+        <h1>Most Popular Build</h1>
+        <ul style="
+            list-style-type: none;
+            ">
+            {% for item in champ['items'] %}
+            <li style="
+                display: inline-block;
+                ">
+                <div>
+                    <img src={{ url_for('static',
                     filename="images/item/" + item['id']|string + ".png")}} />
-            <div>
-        {% endfor %}
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
     </div>
 
     <h1>Leave Comment</h1>
@@ -23,9 +31,14 @@
 
     <h1>Comments</h1>
     {% for comment in comments %}
-        <div>
-            <p>Person: {{ comment.user }}</p>
-            <p>Comment: {{ comment.comment }}</p>
+        <div style=
+        "
+        left: 0px;
+        right: 0;
+        background-color: #D5D5D6;
+        width: 200px;
+        ">
+            <p>{{ comment.user }} : {{ comment.comment }}</p>
         </div>
     {% endfor %}
 <div>
