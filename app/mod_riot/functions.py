@@ -13,8 +13,6 @@ GAME_URL = 'https://na.api.pvp.net/api/lol/na/v1.3/game/by-summoner'
 LEAGUE_URL = 'https://na.api.pvp.net/api/lol/na/v2.5/league'
 MASTERY = 'https://na.api.pvp.net/championmastery/location/NA1/player'
 MATCH_URL = 'https://na.api.pvp.net/api/lol/na/v2.2/match'
-
-CHAMPIONGG = 'http://api.champion.gg/stats'
 MATCH_HISTORY_URL = 'https://na.api.pvp.net/api/lol/na/v2.2/matchlist/by-summoner'
 STATS_URL = 'https://na.api.pvp.net/api/lol/na/v1.3/stats/by-summoner'
 SUMMONER_URL = 'https://na.api.pvp.net/api/lol/na/v1.4/summoner'
@@ -281,5 +279,5 @@ def get_numbered_rank_from_sum_ID(summoner_ID, API_KEY):
 
 def get_summoner_ID_from_name(summoner_name, API_KEY):
     sum_DTO = get_sum_DTO(summoner_name, API_KEY)
-    sum_id = sum_DTO[summoner_name.lower()]['id']
+    sum_id = sum_DTO[summoner_name.lower().replace(" ", "")]['id']
     return sum_id
